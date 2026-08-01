@@ -28,30 +28,20 @@ A skill is a set of instructions the AI loads automatically, instead of you re-e
 
 ## See the difference
 
-Same prompt given to each model: *"Write an email to my manager saying how amazing my day is going"*.
+Same prompt to both: *"Write a message to my manager about my performance review Q1 which saw 2% increase of profits in my department."*
 
-### Without a skill
-
-GPT and Gemini both produce writing that reads instantly as AI: em/en dashes everywhere, over-polished sentences, and in Gemini's case it doesn't even sound like a human day ("my productivity is currently operating with near-zero latency").
+Left is typical AI output, loaded with the tells stop-slopv3 is built to catch: em-dashes, "delve," "stands as a testament," "pivotal moment," "not only... but also," a tricolon close, no actual specifics. Right is the same request run through Claude with stop-slopv3 applied, checked against [Wikipedia's Signs of AI Writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing): direct, specific, no AI tells.
 
 <table>
 <tr>
-<th align="center">GPT — em-dashes, stiff corporate filler</th>
-<th align="center">Gemini — em-dashes, reads like a robot</th>
+<th align="center">Before — typical AI output</th>
+<th align="center">After — Claude + stop-slopv3</th>
 </tr>
 <tr>
-<td><img src="promo/gpt.png" alt="GPT output with em-dashes and generic AI phrasing" width="100%"></td>
-<td><img src="promo/gemini.png" alt="Gemini output with em-dashes and heavily AI-sounding phrasing" width="100%"></td>
+<td><img src="promo/before-ai-slop.svg" alt="Typical AI output: em-dashes, delve, testament to, pivotal moment, not only but also, tricolon closing" width="100%"></td>
+<td><img src="promo/after-stop-slopv3.svg" alt="Same prompt rewritten by Claude with the stop-slopv3 skill applied: direct, specific, no AI tells" width="100%"></td>
 </tr>
 </table>
-
-### With a skill (Claude + stop-slopv2)
-
-No em-dashes, no buzzwords, natural sentence flow. It reads like something a person would actually send to their manager.
-
-<div align="center">
-<img src="promo/claude.png" alt="Claude output using the stop-slopv2 skill, natural human-sounding email" width="85%">
-</div>
 
 ---
 
@@ -59,7 +49,7 @@ No em-dashes, no buzzwords, natural sentence flow. It reads like something a per
 
 | Skill | Path | What it does |
 | ----- | ---- | ------------ |
-| **stop-slopv2** | [Writing/stop-slopv2](Writing/stop-slopv2/) | Makes AI writing sound human. Strips AI tells (em-dashes, "delve", punchy fragments, LinkedIn performativity) and applies a personal writing fingerprint with a register system for academic, professional, and casual writing. |
+| **stop-slopv3** | [Writing/stop-slopv3](Writing/stop-slopv3/) | Makes AI writing sound human. Strips every AI tell in [Wikipedia's Signs of AI Writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) catalogue (em-dashes, puffery, copula avoidance, formatting tics, and more) and applies a personal writing fingerprint with a register system for academic, professional, and casual writing. |
 
 ---
 
@@ -67,8 +57,8 @@ No em-dashes, no buzzwords, natural sentence flow. It reads like something a per
 
 ### Claude (claude.ai website / app)
 
-1. Download the skill's root folder (e.g. `stop-slopv2/`, the folder that contains `SKILL.md`).
-2. Zip that folder so the zip contains the folder itself, e.g. `skill.zip` → `stop-slopv2/SKILL.md`.
+1. Download the skill's root folder (e.g. `stop-slopv3/`, the folder that contains `SKILL.md`).
+2. Zip that folder so the zip contains the folder itself, e.g. `skill.zip` → `stop-slopv3/SKILL.md`.
 3. On claude.ai go to **Settings → Capabilities → Skills** and upload the zip.
 4. Claude will now use the skill automatically whenever it is relevant.
 

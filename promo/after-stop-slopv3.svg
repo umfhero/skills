@@ -1,0 +1,23 @@
+<svg width="848" height="536" viewBox="0 0 848 536" xmlns="http://www.w3.org/2000/svg">
+  <rect width="848" height="536" fill="#000000"/>
+  <rect x="24" y="24" width="800" height="488" rx="18" fill="#141414" stroke="#2a2a2a" stroke-width="1"/>
+
+  <text x="64" y="74" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#8fe3ea">AFTER</text>
+  <text x="64" y="102" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#9a9a9a">Same prompt, run through stop-slopv3</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#ececec">
+    <text x="64" y="164">Hi [Manager's Name],</text>
+
+    <text x="64" y="209">I wanted to send over a quick note on how Q1 went, since the department finished</text>
+    <text x="64" y="238">the quarter with a 2% increase in profits and I think that's worth calling out</text>
+    <text x="64" y="267">properly rather than leaving it for the next review.</text>
+
+    <text x="64" y="312">A good part of this came from the changes we put in place around scheduling and</text>
+    <text x="64" y="341">stock ordering, which cut down on the wasted hours we were seeing back in February.</text>
+    <text x="64" y="370">Because of this, I feel the department is in a stronger position heading into Q2,</text>
+    <text x="64" y="399">and I'd like to keep building on it if that fits with what you've got planned for</text>
+    <text x="64" y="428">the team.</text>
+
+    <text x="64" y="473">Let me know if you want to go over the numbers together at some point.</text>
+  </g>
+</svg>

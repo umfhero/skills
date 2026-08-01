@@ -1,0 +1,25 @@
+<svg width="848" height="608" viewBox="0 0 848 608" xmlns="http://www.w3.org/2000/svg">
+  <rect width="848" height="608" fill="#000000"/>
+  <rect x="24" y="24" width="800" height="560" rx="18" fill="#141414" stroke="#2a2a2a" stroke-width="1"/>
+
+  <text x="64" y="74" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#ff8a80">BEFORE</text>
+  <text x="64" y="102" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#9a9a9a">Same prompt, typical AI output</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#ececec">
+    <text x="64" y="164">Hi [Manager's Name],</text>
+
+    <text x="64" y="209">I wanted to reach out and delve into the results of my Q1 performance review &#8212; a</text>
+    <text x="64" y="238">period that stands as a testament to the team's unwavering commitment to</text>
+    <text x="64" y="267">excellence. The 2% increase in profits isn't just a number &#8212; it's a reflection</text>
+    <text x="64" y="296">of the robust, meticulous approach we've fostered across the department.</text>
+
+    <text x="64" y="341">This achievement marks a pivotal moment in our ongoing journey, underscoring the</text>
+    <text x="64" y="370">value of strategic alignment and collaborative synergy. Not only did we</text>
+    <text x="64" y="399">streamline our workflows, but we also cultivated a culture of continuous</text>
+    <text x="64" y="428">improvement &#8212; one defined by clarity, consistency, and commitment.</text>
+
+    <text x="64" y="473">Looking ahead, I'm excited to keep building on this momentum &#8212; leveraging these</text>
+    <text x="64" y="502">learnings to drive even greater impact in Q2 and beyond. Thank you for your</text>
+    <text x="64" y="531">continued support and guidance throughout this journey.</text>
+  </g>
+</svg>
