@@ -6,6 +6,8 @@
 
 **A public collection of reusable AI skills, written in plain markdown so they work anywhere and can be used from any machine.**
 
+Want to learn more about skills, AI, and practical workflows? Visit [AI Workflow](https://ai-workflow.umfhero-961.workers.dev/).
+
 Each skill is a folder containing a `SKILL.md` (the instructions) plus optional `references/` files with extra detail.
 
 </div>
