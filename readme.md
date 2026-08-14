@@ -6,6 +6,8 @@
 
 **A public collection of reusable AI skills, written in plain markdown so they work anywhere and can be used from any machine.**
 
+Want to learn more about skills, AI, and practical workflows? Visit [AI Workflow](https://ai-workflow.umfhero-961.workers.dev/).
+
 Each skill is a folder containing a `SKILL.md` (the instructions) plus optional `references/` files with extra detail.
 
 </div>
@@ -50,6 +52,7 @@ Left is typical AI output, loaded with the tells stop-slopv3 is built to catch: 
 | Skill | Path | What it does |
 | ----- | ---- | ------------ |
 | **stop-slopv3** | [Writing/stop-slopv3](Writing/stop-slopv3/) | Makes AI writing sound human. Strips every AI tell in [Wikipedia's Signs of AI Writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) catalogue (em-dashes, puffery, copula avoidance, formatting tics, and more) and applies a personal writing fingerprint with a register system for academic, professional, and casual writing. |
+| **pixel-design** | [Skills/pixel-design](Skills/pixel-design/) | Applies a complete retro 8 bit visual system to web UI: high contrast colour blocks, hard ink borders, zero blur offset shadows, pixel sprite icons and stepped animation. Works with plain CSS, CSS modules, Tailwind and styled components. |
 
 ---
 
