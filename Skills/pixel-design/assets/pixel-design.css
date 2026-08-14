@@ -1,0 +1,320 @@
+/* ==========================================================================
+   Pixel Design
+   Drop in stylesheet. Tokens live on :root so any page can use them.
+   Class prefix is pd- to avoid collisions. Rename if the project prefers.
+   ========================================================================== */
+
+:root {
+  /* Surfaces */
+  --pd-bg: #f6f7fb;
+  --pd-surface: #ffffff;
+
+  /* Ink */
+  --pd-ink: #0b1130;
+  --pd-ink-alt: #0c1231;
+  --pd-line: rgba(11, 17, 32, .08);
+
+  /* Text tiers, strongest to faintest */
+  --pd-heading: #151a33;
+  --pd-heading-soft: #232a45;
+  --pd-muted: #5c6478;
+  --pd-muted-2: #7d8499;
+  --pd-muted-3: #8991aa;
+  --pd-muted-4: #98a0b3;
+
+  /* Accents */
+  --pd-blue: #3561dc;
+  --pd-violet: #6258e9;
+  --pd-pink: #c2469e;
+  --pd-cyan: #1f9db8;
+  --pd-green: #1f9d6e;
+  --pd-green-deep: #178a53;
+
+  /* Geometry */
+  --pd-border: 2px;
+  --pd-radius-sm: 5px;
+  --pd-radius: 6px;
+  --pd-radius-lg: 8px;
+
+  /* Hard shadows, zero blur, always */
+  --pd-shadow-sm: 3px 3px 0 var(--pd-ink);
+  --pd-shadow: 4px 4px 0 var(--pd-ink);
+  --pd-shadow-lg: 7px 7px 0 var(--pd-ink);
+
+  /* Layout */
+  --pd-gutter: clamp(20px, 5vw, 56px);
+  --pd-max: 1080px;
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--pd-bg);
+  color: var(--pd-ink);
+  font-family: "Space Grotesk", "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+p { color: var(--pd-muted); }
+
+a { color: var(--pd-blue); text-underline-offset: 3px; }
+
+/* The outermost page element carries no horizontal padding, so a shared header
+   can run edge to edge. Padding goes on the inner wrapper instead. */
+.pd-page { min-height: 100%; }
+
+.pd-wrap {
+  width: 100%;
+  max-width: var(--pd-max);
+  margin: 0 auto;
+  padding-inline: var(--pd-gutter);
+}
+
+/* Uppercase letter spaced label, the workhorse of the arcade register */
+.pd-eyebrow {
+  font-family: "Silkscreen", "Space Grotesk", monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--pd-muted-2);
+}
+
+/* --------------------------------------------------------------------------
+   Grid texture, the only sanctioned use of gradient()
+   -------------------------------------------------------------------------- */
+
+.pd-grid-bg {
+  background-color: rgba(98, 88, 233, .05);
+  background-image:
+    linear-gradient(rgba(11, 17, 32, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 17, 32, .07) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+
+.pd-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border: var(--pd-border) solid var(--pd-ink);
+  border-radius: var(--pd-radius-sm);
+  background: var(--pd-surface);
+  color: var(--pd-ink);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 var(--pd-ink);
+  transition: transform .1s ease, box-shadow .1s ease;
+}
+
+.pd-button:hover,
+.pd-button:focus-visible {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--pd-ink);
+}
+
+.pd-button:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 var(--pd-ink);
+}
+
+/* Primary sits on a dark fill with an accent shadow. One or two per page. */
+.pd-button--primary {
+  background: var(--pd-ink-alt);
+  color: #ffffff;
+  box-shadow: 5px 5px 0 var(--pd-violet);
+}
+.pd-button--primary:hover,
+.pd-button--primary:focus-visible { box-shadow: 3px 3px 0 var(--pd-violet); }
+.pd-button--primary:active { box-shadow: 0 0 0 var(--pd-violet); }
+
+.pd-button--small { padding: 8px 13px; font-size: 14px; box-shadow: var(--pd-shadow-sm); }
+.pd-button--small:hover,
+.pd-button--small:focus-visible { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--pd-ink); }
+.pd-button--small:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--pd-ink); }
+
+/* Visible keyboard focus that survives the pressed transform */
+.pd-button:focus-visible,
+.pd-input:focus-visible,
+.pd-tab:focus-visible {
+  outline: 2px solid var(--pd-violet);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Cards and panels
+   -------------------------------------------------------------------------- */
+
+.pd-card {
+  position: relative;
+  padding: 20px;
+  border: var(--pd-border) solid var(--pd-ink);
+  border-radius: var(--pd-radius);
+  background: var(--pd-surface);
+  box-shadow: var(--pd-shadow);
+}
+
+.pd-panel {
+  position: relative;
+  padding: 24px;
+  border: var(--pd-border) solid var(--pd-ink);
+  border-radius: var(--pd-radius-lg);
+  background: var(--pd-surface);
+  box-shadow: var(--pd-shadow-lg);
+}
+
+.pd-card__value {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--pd-heading);
+}
+
+.pd-divider { height: 1px; background: var(--pd-line); border: 0; }
+
+/* --------------------------------------------------------------------------
+   Badges
+   -------------------------------------------------------------------------- */
+
+.pd-badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border: var(--pd-border) solid var(--pd-ink);
+  border-radius: 4px;
+  background: var(--pd-surface);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 0 var(--pd-ink);
+}
+
+.pd-badge--done { background: var(--pd-green); color: #ffffff; }
+.pd-badge--live { background: var(--pd-violet); color: #ffffff; }
+.pd-badge--flag { background: var(--pd-pink); color: #ffffff; }
+
+/* --------------------------------------------------------------------------
+   Progress
+   -------------------------------------------------------------------------- */
+
+.pd-progress {
+  height: 14px;
+  border: var(--pd-border) solid var(--pd-ink);
+  border-radius: 4px;
+  background: var(--pd-bg);
+  overflow: hidden;
+}
+
+.pd-progress__fill {
+  height: 100%;
+  background: var(--pd-violet);
+}
+
+.pd-progress__fill--done { background: var(--pd-green); }
+
+/* --------------------------------------------------------------------------
+   Form controls
+   -------------------------------------------------------------------------- */
+
+.pd-field { display: grid; gap: 6px; }
+
+.pd-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--pd-muted-2);
+}
+
+.pd-input,
+.pd-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: var(--pd-border) solid var(--pd-ink);
+  border-radius: var(--pd-radius-sm);
+  background: var(--pd-surface);
+  color: var(--pd-ink);
+  font: inherit;
+  box-shadow: var(--pd-shadow-sm);
+}
+
+.pd-input::placeholder { color: var(--pd-muted-4); }
+
+/* --------------------------------------------------------------------------
+   Table
+   -------------------------------------------------------------------------- */
+
+.pd-table-wrap {
+  border: var(--pd-border) solid var(--pd-ink);
+  border-radius: var(--pd-radius);
+  background: var(--pd-surface);
+  box-shadow: var(--pd-shadow);
+  overflow: hidden;
+}
+
+.pd-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+
+.pd-table th {
+  padding: 11px 16px;
+  background: var(--pd-ink);
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.pd-table td {
+  padding: 12px 16px;
+  border-top: 1px solid var(--pd-line);
+  color: var(--pd-muted);
+}
+
+.pd-table tbody tr:first-child td { border-top: 0; }
+
+/* --------------------------------------------------------------------------
+   Pixel icons
+   -------------------------------------------------------------------------- */
+
+.pd-icon { display: inline-block; vertical-align: middle; shape-rendering: crispedges; }
+
+/* Spacious container: spark sits inside the padding */
+.pd-spark-corner { position: absolute; top: 32px; right: 28px; }
+
+/* Dense card: spark perches outside the corner so it cannot overlap content */
+.pd-spark-perch { position: absolute; top: -14px; right: -10px; width: 18px; height: 18px; }
+
+@keyframes pd-twinkle {
+  50% { opacity: .4; transform: scale(.75); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pd-spark { animation: pd-twinkle 1.4s steps(2) infinite; }
+}
+
+/* --------------------------------------------------------------------------
+   Loading skeleton, exempt from the gradient ban as a UX convention
+   -------------------------------------------------------------------------- */
+
+@keyframes pd-shimmer { to { background-position: -200% 0; } }
+
+.pd-skeleton {
+  border: var(--pd-border) solid var(--pd-ink);
+  border-radius: 4px;
+  background: linear-gradient(90deg, #eceef6 0%, #f7f8fc 50%, #eceef6 100%);
+  background-size: 200% 100%;
+  animation: pd-shimmer 1.2s linear infinite;
+}
