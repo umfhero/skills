@@ -1,7 +1,6 @@
 ---
 name: stop-slopv3
 description: "Write in the author's personal voice and style. Use this skill whenever you are writing, drafting, editing, reviewing, or improving any prose for the author: essays, reports, cover letters, social posts, documentation, emails, applications, or any written output longer than one sentence. Apply it even if the author does not explicitly ask for his voice. If you are generating prose, use this skill. This skill combines the author's specific writing fingerprint (from real writing samples) with a full sweep against Wikipedia's Signs of AI Writing catalogue, so output reads as authentically his and carries none of the generic AI tells. Always write in British English spelling."
-applyTo: "**"
 ---
 
 # Author Voice

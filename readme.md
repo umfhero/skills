@@ -1,106 +1,89 @@
 <div align="center">
 
-<img src="promo/Claude%20Skills.png" alt="Claude Skills banner" width="100%">
+<img src="promo/Claude%20Skills.png" alt="Reusable AI skills" width="100%">
 
 # Skills
 
-**A public collection of reusable AI skills, written in plain markdown so they work anywhere and can be used from any machine.**
+Reusable writing and web-design skills for Claude, Codex, ChatGPT, Gemini, and other AI tools.
 
-Want to learn more about skills, AI, and practical workflows? Visit [AI Workflow](https://ai-workflow.umfhero-961.workers.dev/).
-
-Each skill is a folder containing a `SKILL.md` (the instructions) plus optional `references/` files with extra detail.
+Each skill is self-contained: start with its `SKILL.md`, then load any linked `references/`, `assets/`, or `scripts/` when needed.
 
 </div>
 
----
+## Writing skills
 
-## Why use a skill?
+| Skill | Use it for |
+| --- | --- |
+| [stop-slopv3](Skills/stop-slopv3/) | Natural, specific writing without common AI phrasing or formatting habits. Includes voice profiles and academic, professional, and casual registers. **Recommended.** |
+| [stop-slopv2](Skills/stop-slopv2/) | The earlier human-writing ruleset, retained for compatibility and comparison. |
 
-A skill is a set of instructions the AI loads automatically, instead of you re-explaining what you want every single chat.
+### Writing example
 
-| | Without a skill | With a skill |
-| --- | --- | --- |
-| **Setup per chat** | Re-type or re-paste your preferences every time | Nothing, it loads automatically |
-| **Consistency** | Output changes from chat to chat | Same rules applied every time |
-| **Quality** | Generic AI defaults (em-dashes, "delve", buzzwords) | Your rules baked in, checked against ban lists |
-| **Time** | Several rounds of "no, rewrite it like..." | Right on the first attempt |
-| **Sharing** | Locked in your head | Anyone can download the folder and get the same results |
-
----
-
-## See the difference
-
-Same prompt to both: *"Write a message to my manager about my performance review Q1 which saw 2% increase of profits in my department."*
-
-Left is typical AI output, loaded with the tells stop-slopv3 is built to catch: em-dashes, "delve," "stands as a testament," "pivotal moment," "not only... but also," a tricolon close, no actual specifics. Right is the same request run through Claude with stop-slopv3 applied, checked against [Wikipedia's Signs of AI Writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing): direct, specific, no AI tells.
+The same performance-review prompt without and with `stop-slopv3`:
 
 <table>
 <tr>
-<th align="center">Before — typical AI output</th>
-<th align="center">After — Claude + stop-slopv3</th>
+<th align="center">Typical AI output</th>
+<th align="center">With stop-slopv3</th>
 </tr>
 <tr>
-<td><img src="promo/before-ai-slop.svg" alt="Typical AI output: em-dashes, delve, testament to, pivotal moment, not only but also, tricolon closing" width="100%"></td>
-<td><img src="promo/after-stop-slopv3.svg" alt="Same prompt rewritten by Claude with the stop-slopv3 skill applied: direct, specific, no AI tells" width="100%"></td>
+<td><img src="promo/before-ai-slop.svg" alt="Typical AI writing with generic phrasing" width="100%"></td>
+<td><img src="promo/after-stop-slopv3.svg" alt="Direct writing produced with stop-slopv3" width="100%"></td>
 </tr>
 </table>
 
----
+## Design skills
 
-## Available skills
-
-| Skill | Path | What it does |
-| ----- | ---- | ------------ |
-| **stop-slopv3** | [Writing/stop-slopv3](Writing/stop-slopv3/) | Makes AI writing sound human. Strips every AI tell in [Wikipedia's Signs of AI Writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) catalogue (em-dashes, puffery, copula avoidance, formatting tics, and more) and applies a personal writing fingerprint with a register system for academic, professional, and casual writing. |
-| **pixel-design** | [Skills/pixel-design](Skills/pixel-design/) | Applies a complete retro 8 bit visual system to web UI: high contrast colour blocks, hard ink borders, zero blur offset shadows, pixel sprite icons and stepped animation. Works with plain CSS, CSS modules, Tailwind and styled components. |
+| Skill | Use it for |
+| --- | --- |
+| [pixel-design](Skills/pixel-design/) | Retro 8-bit interfaces with hard borders, offset shadows, pixel icons, high-contrast colour blocks, and stepped motion. |
+| [git-design](Skills/git-design/) | GitHub Universe-style landing pages with measured desktop/mobile layouts, typography, colour tokens, media controls, tickers, tabs, carousels, and accessible motion. |
 
 ### Pixel Design example
 
-<img src="promo/pixeldesign.png" alt="Example web interface built with the pixel-design skill" width="100%">
+<img src="promo/pixeldesign.png" alt="Web interface created with pixel-design" width="100%">
 
----
+### Git-Design example
 
-## How to use a skill
+<img src="promo/git-design-desktop.png" alt="Desktop landing page created with Git-Design" width="100%">
 
-### Claude (claude.ai website / app)
+<p align="center"><img src="promo/git-design-mobile.png" alt="Mobile landing page created with Git-Design" width="390"></p>
 
-1. Download the skill's root folder (e.g. `stop-slopv3/`, the folder that contains `SKILL.md`).
-2. Zip that folder so the zip contains the folder itself, e.g. `skill.zip` → `stop-slopv3/SKILL.md`.
-3. On claude.ai go to **Settings → Capabilities → Skills** and upload the zip.
-4. Claude will now use the skill automatically whenever it is relevant.
+The working example is in [git-design-demo](git-design-demo/). To preview it locally:
 
-### Claude Code (CLI / VS Code)
+```bash
+python -m http.server 4173
+```
 
-Copy the skill folder into one of:
+Open `http://127.0.0.1:4173/git-design-demo/`.
 
-- `~/.claude/skills/` to make it available everywhere (personal)
-- `.claude/skills/` inside a project to share it with that repo
+## Install
 
-No zipping needed, Claude Code picks it up on the next session.
+### Claude
 
-### ChatGPT / Gemini / other tools
+Zip one skill folder so the archive contains `skill-name/SKILL.md`, then upload it under **Settings → Capabilities → Skills**.
 
-There is no native skill format, but the same files work as instructions:
+### Codex or Claude Code
 
-- **Custom GPT / Projects / Gems:** upload the `SKILL.md` and any `references/` files as knowledge, then add an instruction like "Follow SKILL.md for all writing tasks".
-- **Single chat:** paste the contents of `SKILL.md` at the start of the conversation.
+Copy the complete skill folder into your personal or project skills directory:
 
----
+```text
+~/.codex/skills/skill-name/
+~/.claude/skills/skill-name/
+```
 
-## Adding a new skill
+### Other AI tools
 
-1. Create a folder for it (grouped by category, e.g. `Writing/my-skill/`).
-2. Add a `SKILL.md` with frontmatter at the top:
+Upload the skill's `SKILL.md` and referenced files as project knowledge, then instruct the tool to follow `SKILL.md` for matching tasks.
 
-   ```markdown
-   ---
-   name: my-skill
-   description: "One or two sentences saying what the skill does and when to use it."
-   ---
+## Skill structure
 
-   # My Skill
+```text
+skill-name/
+├── SKILL.md
+├── references/   # Detailed guidance
+├── assets/       # Reusable styles, icons, and templates
+└── scripts/      # Reusable interactions or validation
+```
 
-   Instructions go here.
-   ```
-
-3. Put any longer supporting material in a `references/` subfolder and link to it from `SKILL.md`, so the main file stays short and the detail gets loaded only when needed.
+Only `SKILL.md` is required. Keep detailed material in the linked folders so the core instructions stay short.

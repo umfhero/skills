@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git-Design"
+  short_description: "Build high-parity GitHub Universe web experiences"
+  default_prompt: "Use $git-design to reproduce the GitHub Universe homepage system with responsive layout, motion, media controls, carousels, tabs, and accessible interaction states."
