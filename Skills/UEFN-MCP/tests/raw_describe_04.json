@@ -1,0 +1,13 @@
+{
+	"jsonrpc": "2.0",
+	"id": 104,
+	"result":
+	{
+		"content": [
+			{
+				"type": "text",
+				"text": "{\"name\":\"NiagaraToolsets.NiagaraToolset_Info\",\"version\":\"1.0\",\"description\":\"Niagara Toolset for general Niagara information and guidance.\\n\\nProvides:\\n- Enum value lookups\\n- General usage information\\n\\nCall these functions when you need context about Niagara types.\",\"tools\":[{\"description\":\"Returns information about a UEnum and all its values.\\nALWAYS call this when working with a UEnum type to see valid values.\",\"name\":\"NiagaraToolsets.NiagaraToolset_Info.UEnum_Info\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"enum\":{\"type\":\"object\",\"title\":\"/Script/CoreUObject.Enum\",\"description\":\"Represents a reference to a UObject or UClass.\",\"properties\":{\"refPath\":{\"type\":\"string\",\"description\":\"The reference stored as a soft path string.\"}},\"required\":[\"refPath\"]}},\"required\":[\"enum\"]},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"returnValue\":{\"type\":\"string\"}},\"required\":[\"returnValue\"]}}]}"
+			}
+		]
+	}
+}

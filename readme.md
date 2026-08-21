@@ -57,6 +57,16 @@ python -m http.server 4173
 
 Open `http://127.0.0.1:4173/git-design-demo/`.
 
+## UEFN skills
+
+| Skill | Use it for |
+| --- | --- |
+| [UEFN-MCP](Skills/UEFN-MCP/) | Connecting to Epic's official UEFN MCP beta, discovering its live toolsets, using verified JSON-RPC request shapes, and handling current protocol quirks. |
+| [UEFN-build](Skills/UEFN-build/) | Building and verifying UEFN levels through MCP: finding assets, placing actors and primitives, authoring materials, transforming content, and saving scoped changes. |
+| [UEFN-Tycoon](Skills/UEFN-Tycoon/) | Extending the project-specific Skyblock tycoon safely, with its Verse architecture, persistence model, dependency map, live device wiring, and source snapshot. |
+
+UEFN MCP shipped with Fortnite v42.00 on 20 August 2026 and is currently in beta. See [Epic's UEFN MCP documentation](https://dev.epicgames.com/documentation/fortnite/uefn-mcp).
+
 ## Install
 
 ### Claude

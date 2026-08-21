@@ -1,0 +1,13 @@
+{
+	"jsonrpc": "2.0",
+	"id": 113,
+	"result":
+	{
+		"content": [
+			{
+				"type": "text",
+				"text": "{\"name\":\"ValkyrieToolset.ValkyriePythonToolset\",\"version\":\"1.0\",\"description\":\"Valkyrie Python Toolset\",\"tools\":[{\"description\":\"Is Python Enabled in UEFN\",\"name\":\"ValkyrieToolset.ValkyriePythonToolset.IsPythonEnabledInUEFN\",\"inputSchema\":{\"type\":\"object\"},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"returnValue\":{\"type\":\"boolean\"}},\"required\":[\"returnValue\"]}},{\"description\":\"Enable Python in UEFN\",\"name\":\"ValkyrieToolset.ValkyriePythonToolset.EnablePythonInUEFN\",\"inputSchema\":{\"type\":\"object\"}}]}"
+			}
+		]
+	}
+}
