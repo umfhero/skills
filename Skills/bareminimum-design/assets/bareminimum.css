@@ -1,0 +1,259 @@
+/**
+ * Bareminimum-Design Baseline Stylesheet
+ * 
+ * Provides an anti-slop starter foundation for any project:
+ * - Legible, human-scale typography (no tiny fonts, minimum 16px body, 14px secondary).
+ * - High-contrast, grounded surfaces (no purple gradients, no neon halos, no glassmorphism).
+ * - Crisp geometric boundaries (no side-tab borders, no hairline + diffuse shadow combos).
+ * - Restrained, performant transitions (transform & opacity only; zero bounce or layout thrash).
+ */
+
+:root {
+  /* Surface and ink primitives - neutral, intentional, high contrast */
+  --bm-bg: #ffffff;
+  --bm-surface: #f8f9fa;
+  --bm-surface-raised: #ffffff;
+  --bm-surface-subtle: #f1f3f5;
+  --bm-ink: #111827;
+  --bm-ink-muted: #4b5563;
+  --bm-ink-subtle: #6b7280;
+  --bm-border: #e5e7eb;
+  --bm-border-strong: #d1d5db;
+  
+  /* Single purposeful accent (override per project; default neutral slate-indigo) */
+  --bm-accent: #2563eb;
+  --bm-accent-hover: #1d4ed8;
+  --bm-accent-contrast: #ffffff;
+  --bm-focus-ring: rgba(37, 99, 235, 0.35);
+
+  /* Typography scale (Ratio ~1.25, clear visual hierarchy) */
+  --bm-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bm-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  --bm-text-xs: 0.75rem;    /* 12px: strict floor for auxiliary metadata, timestamps, tags ONLY */
+  --bm-text-sm: 0.875rem;   /* 14px: secondary labels, table cells, form inputs */
+  --bm-text-base: 1rem;     /* 16px: default body text, baseline read */
+  --bm-text-lg: 1.25rem;    /* 20px: subheadings, card titles */
+  --bm-text-xl: 1.5rem;     /* 24px: section headings */
+  --bm-text-2xl: 2rem;      /* 32px: major titles */
+  --bm-text-3xl: 2.5rem;    /* 40px: hero display */
+
+  /* Leading */
+  --bm-leading-tight: 1.2;
+  --bm-leading-snug: 1.35;
+  --bm-leading-normal: 1.55;
+  --bm-leading-relaxed: 1.65;
+
+  /* Spacing */
+  --bm-space-1: 0.25rem;  /* 4px */
+  --bm-space-2: 0.5rem;   /* 8px */
+  --bm-space-3: 0.75rem;  /* 12px */
+  --bm-space-4: 1rem;      /* 16px */
+  --bm-space-6: 1.5rem;    /* 24px */
+  --bm-space-8: 2rem;      /* 32px */
+  --bm-space-12: 3rem;     /* 48px */
+  --bm-space-16: 4rem;     /* 64px */
+
+  /* Radii - restrained, never pill-shaped on cards */
+  --bm-radius-sm: 4px;
+  --bm-radius-md: 6px;
+  --bm-radius-lg: 10px;
+  --bm-radius-full: 9999px; /* Reserved strictly for circular badges & pills */
+
+  /* Shadows - subtle and defined, never huge diffuse dark-mode glows */
+  --bm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --bm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+
+  /* Transitions - hardware accelerated, smooth ease-out curves */
+  --bm-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --bm-duration-fast: 150ms;
+  --bm-duration-normal: 200ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bm-bg: #0f1117;
+    --bm-surface: #181b23;
+    --bm-surface-raised: #1f232d;
+    --bm-surface-subtle: #14171f;
+    --bm-ink: #f9fafb;
+    --bm-ink-muted: #9ca3af;
+    --bm-ink-subtle: #6b7280;
+    --bm-border: #2d3342;
+    --bm-border-strong: #3f4759;
+    --bm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --bm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Base Resets & Typography Floors */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--bm-font-sans);
+  font-size: var(--bm-text-base);
+  line-height: var(--bm-leading-normal);
+  color: var(--bm-ink);
+  background-color: var(--bm-bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Guardrails: Prevent unconstrained reading widths and crowded blocks */
+p, ul, ol {
+  max-width: 68ch; /* Optimal line length: 60-75 characters */
+  color: var(--bm-ink);
+}
+
+p + p {
+  margin-top: var(--bm-space-4);
+}
+
+/* Headings: Clear scale, strict ban on uppercase kickers above */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 650;
+  line-height: var(--bm-leading-tight);
+  color: var(--bm-ink);
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: var(--bm-text-3xl);
+  margin-bottom: var(--bm-space-4);
+}
+
+h2 {
+  font-size: var(--bm-text-2xl);
+  margin-top: var(--bm-space-8);
+  margin-bottom: var(--bm-space-3);
+}
+
+h3 {
+  font-size: var(--bm-text-xl);
+  margin-top: var(--bm-space-6);
+  margin-bottom: var(--bm-space-2);
+}
+
+/* Interactive elements */
+a {
+  color: var(--bm-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--bm-duration-fast) var(--bm-ease-out);
+}
+
+a:hover {
+  color: var(--bm-accent-hover);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: var(--bm-text-sm);
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--bm-accent);
+  outline-offset: 2px;
+}
+
+/* Containers and Surfaces */
+.bm-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--bm-space-4);
+  padding-right: var(--bm-space-4);
+}
+
+.bm-prose-container {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--bm-space-4);
+  padding-right: var(--bm-space-4);
+}
+
+/* Anti-slop Card: Crisp single boundary or clean elevated surface */
+.bm-card {
+  background-color: var(--bm-surface-raised);
+  border: 1px solid var(--bm-border);
+  border-radius: var(--bm-radius-md);
+  padding: var(--bm-space-6);
+  box-shadow: var(--bm-shadow-sm);
+}
+
+/* Action button: Solid, honest, accessible */
+.bm-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bm-space-2);
+  padding: 0.625rem 1.125rem;
+  font-size: var(--bm-text-sm);
+  font-weight: 550;
+  line-height: 1;
+  border-radius: var(--bm-radius-md);
+  border: 1px solid transparent;
+  background-color: var(--bm-accent);
+  color: var(--bm-accent-contrast);
+  text-decoration: none;
+  transition: background-color var(--bm-duration-fast) var(--bm-ease-out),
+              transform var(--bm-duration-fast) var(--bm-ease-out);
+}
+
+.bm-button:hover {
+  background-color: var(--bm-accent-hover);
+  color: var(--bm-accent-contrast);
+}
+
+.bm-button--secondary {
+  background-color: var(--bm-surface);
+  border-color: var(--bm-border-strong);
+  color: var(--bm-ink);
+}
+
+.bm-button--secondary:hover {
+  background-color: var(--bm-surface-subtle);
+  color: var(--bm-ink);
+}
+
+/* Icon integration: optical inline alignment, never oversized floating tile */
+.bm-icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 1.75;
+  stroke: currentColor;
+  fill: none;
+  vertical-align: -0.15em;
+  flex-shrink: 0;
+}
+
+/* Accessibility: Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

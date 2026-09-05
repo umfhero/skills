@@ -12,10 +12,10 @@ Each skill is self-contained: start with its `SKILL.md`, then load any linked `r
 
 ## Writing skills
 
-| Skill | Use it for |
-| --- | --- |
+| Skill                              | Use it for                                                                                                                                                            |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [stop-slopv3](Skills/stop-slopv3/) | Natural, specific writing without common AI phrasing or formatting habits. Includes voice profiles and academic, professional, and casual registers. **Recommended.** |
-| [stop-slopv2](Skills/stop-slopv2/) | The earlier human-writing ruleset, retained for compatibility and comparison. |
+| [stop-slopv2](Skills/stop-slopv2/) | The earlier human-writing ruleset, retained for compatibility and comparison.                                                                                         |
 
 ### Writing example
 
@@ -34,10 +34,11 @@ The same performance-review prompt without and with `stop-slopv3`:
 
 ## Design skills
 
-| Skill | Use it for |
-| --- | --- |
-| [pixel-design](Skills/pixel-design/) | Retro 8-bit interfaces with hard borders, offset shadows, pixel icons, high-contrast colour blocks, and stepped motion. |
-| [git-design](Skills/git-design/) | GitHub Universe-style landing pages with measured desktop/mobile layouts, typography, colour tokens, media controls, tickers, tabs, carousels, and accessible motion. |
+| Skill                                            | Use it for                                                                                                                                                                                                                                          |
+| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [bareminimum-design](Skills/bareminimum-design/) | Foundational starter design system that eradicates AI slop (purple gradients, tiny text, kicker mini-titles, identical 3-card grids, icon tiles) with clean typography, Lucide icons, and robust layouts. **Recommended for starting any project.** |
+| [pixel-design](Skills/pixel-design/)             | Retro 8-bit interfaces with hard borders, offset shadows, pixel icons, high-contrast colour blocks, and stepped motion.                                                                                                                             |
+| [git-design](Skills/git-design/)                 | GitHub Universe-style landing pages with measured desktop/mobile layouts, typography, colour tokens, media controls, tickers, tabs, carousels, and accessible motion.                                                                               |
 
 ### Pixel Design example
 
@@ -59,11 +60,11 @@ Open `http://127.0.0.1:4173/git-design-demo/`.
 
 ## UEFN skills
 
-| Skill | Use it for |
-| --- | --- |
-| [UEFN-MCP](Skills/UEFN-MCP/) | Connecting to Epic's official UEFN MCP beta, discovering its live toolsets, using verified JSON-RPC request shapes, and handling current protocol quirks. |
-| [UEFN-build](Skills/UEFN-build/) | Building and verifying UEFN levels through MCP: finding assets, placing actors and primitives, authoring materials, transforming content, and saving scoped changes. |
-| [UEFN-Tycoon](Skills/UEFN-Tycoon/) | Extending the project-specific Skyblock tycoon safely, with its Verse architecture, persistence model, dependency map, live device wiring, and source snapshot. |
+| Skill                              | Use it for                                                                                                                                                           |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [UEFN-MCP](Skills/UEFN-MCP/)       | Connecting to Epic's official UEFN MCP beta, discovering its live toolsets, using verified JSON-RPC request shapes, and handling current protocol quirks.            |
+| [UEFN-build](Skills/UEFN-build/)   | Building and verifying UEFN levels through MCP: finding assets, placing actors and primitives, authoring materials, transforming content, and saving scoped changes. |
+| [UEFN-Tycoon](Skills/UEFN-Tycoon/) | Extending the project-specific Skyblock tycoon safely, with its Verse architecture, persistence model, dependency map, live device wiring, and source snapshot.      |
 
 UEFN MCP shipped with Fortnite v42.00 on 20 August 2026 and is currently in beta. See [Epic's UEFN MCP documentation](https://dev.epicgames.com/documentation/fortnite/uefn-mcp).
 
