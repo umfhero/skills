@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuro Obsidian — 64mm Precision Flat Burr Coffee Grinder</title>
+  <link rel="stylesheet" href="../Skills/bareminimum-design/assets/bareminimum.css">
+  <style>
+    /* Cohesive Project-Tailored Color Palette: Kuro Obsidian (Craft Coffee Engineering) */
+    :root {
+      /* Brand Accent Family: Warm Crema Bronze & Amber */
+      --bm-accent: #c27838;
+      --bm-accent-hover: #a86228;
+      --bm-accent-active: #8c4e1d;
+      --bm-accent-subtle: #fbf5ee;
+      --bm-accent-contrast: #ffffff;
+      --bm-focus-ring: rgba(194, 120, 56, 0.25);
+
+      /* Clean, warm-tinted light canvas */
+      --bm-bg: #faf9f7;
+      --bm-surface: #f3f1ed;
+      --bm-surface-raised: #ffffff;
+      --bm-surface-subtle: #eae7e1;
+      --bm-ink: #191816;
+      --bm-ink-muted: #57544e;
+      --bm-ink-subtle: #7a766e;
+      --bm-border: #e6e2da;
+      --bm-border-strong: #d5cfc4;
+
+      /* Material highlights */
+      --mat-obsidian: #18191c;
+      --mat-titanium: #33363f;
+    }
+
+    /* Masthead: Full-bleed edge-to-edge layout */
+    .site-header {
+      border-bottom: 1px solid var(--bm-border);
+      background-color: var(--bm-surface-raised);
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      width: 100%;
+    }
+
+    .header-inner {
+      height: 68px;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: var(--bm-space-3);
+      font-weight: 750;
+      font-size: var(--bm-text-lg);
+      letter-spacing: -0.01em;
+      color: var(--bm-ink);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 24px;
+      height: 24px;
+      color: var(--bm-accent);
+      flex-shrink: 0;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: var(--bm-space-8);
+    }
+
+    .header-nav a {
+      font-size: var(--bm-text-sm);
+      font-weight: 550;
+      color: var(--bm-ink-muted);
+      text-decoration: none;
+      transition: color var(--bm-duration-fast) var(--bm-ease-out);
+    }
+
+    .header-nav a:hover {
+      color: var(--bm-ink);
+    }
+
+    /* 2-Column Split Hero with Expansive 1440px Container */
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--bm-space-12);
+      align-items: center;
+      padding-top: var(--bm-space-12);
+      padding-bottom: var(--bm-space-12);
+    }
+
+    @media (max-width: 900px) {
+      .hero-split {
+        grid-template-columns: 1fr;
+        gap: var(--bm-space-8);
+      }
+    }
+
+    /* Strict Heading Purity: Title is the first element, no kicker/pill above */
+    .hero-title {
+      font-size: clamp(2.25rem, 3.8vw, 3.25rem);
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      color: var(--bm-ink);
+      margin-bottom: var(--bm-space-4);
+    }
+
+    .hero-lead {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: var(--bm-ink-muted);
+      margin-bottom: var(--bm-space-6);
+    }
+
+    .action-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--bm-space-4);
+      margin-bottom: var(--bm-space-8);
+    }
+
+    .price-block {
+      display: flex;
+      align-items: baseline;
+      gap: var(--bm-space-2);
+    }
+
+    .price-main {
+      font-size: 1.75rem;
+      font-weight: 750;
+      color: var(--bm-ink);
+    }
+
+    .price-notes {
+      font-size: var(--bm-text-sm);
+      color: var(--bm-ink-subtle);
+    }
+
+    /* Interactive Grind Mode Selector (Proper Tactile Buttons) */
+    .selector-card {
+      border: 1px solid var(--bm-border);
+      border-radius: var(--bm-radius-md);
+      background-color: var(--bm-surface-raised);
+      padding: var(--bm-space-6);
+      box-shadow: var(--bm-shadow-sm);
+    }
+
+    .selector-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--bm-space-3);
+      margin-bottom: var(--bm-space-4);
+    }
+
+    .selector-title {
+      font-size: var(--bm-text-sm);
+      font-weight: 650;
+      color: var(--bm-ink);
+    }
+
+    .metrics-meter-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--bm-space-3);
+    }
+
+    .meter-row {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .meter-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--bm-text-xs);
+    }
+
+    .meter-name {
+      font-weight: 550;
+      color: var(--bm-ink);
+    }
+
+    .meter-val {
+      font-weight: 650;
+      color: var(--bm-accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .meter-track {
+      width: 100%;
+      height: 6px;
+      background-color: var(--bm-surface);
+      border-radius: var(--bm-radius-full);
+      overflow: hidden;
+    }
+
+    .meter-bar {
+      height: 100%;
+      background-color: var(--bm-accent);
+      border-radius: var(--bm-radius-full);
+      transition: width var(--bm-duration-slow) var(--bm-ease-out);
+    }
+
+    /* Right Column: Physical Product Illustration Card */
+    .grinder-visual-card {
+      background: linear-gradient(180deg, #ffffff 0%, var(--bm-surface) 100%);
+      border: 1px solid var(--bm-border);
+      border-radius: var(--bm-radius-lg);
+      padding: var(--bm-space-8);
+      box-shadow: var(--bm-shadow-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform var(--bm-duration-normal) var(--bm-ease-out),
+                  border-color var(--bm-duration-normal) var(--bm-ease-out);
+    }
+
+    .grinder-visual-card:hover {
+      border-color: var(--bm-border-strong);
+      transform: translateY(-2px);
+    }
+
+    .grinder-svg {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.08));
+    }
+
+    .grinder-specs-footer {
+      margin-top: var(--bm-space-4);
+      display: flex;
+      gap: var(--bm-space-4);
+      font-size: var(--bm-text-xs);
+      color: var(--bm-ink-muted);
+    }
+
+    /* Content Sections */
+    .content-section {
+      padding-top: var(--bm-space-12);
+      padding-bottom: var(--bm-space-12);
+      border-top: 1px solid var(--bm-border);
+    }
+
+    .section-title {
+      font-size: var(--bm-text-2xl);
+      font-weight: 750;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--bm-space-2);
+    }
+
+    .section-desc {
+      font-size: var(--bm-text-base);
+      color: var(--bm-ink-muted);
+      margin-bottom: var(--bm-space-8);
+    }
+
+    /* Engineering Spec Table (Data-Dense, Authentic) */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--bm-text-sm);
+      margin-top: var(--bm-space-4);
+    }
+
+    .specs-table th,
+    .specs-table td {
+      padding: var(--bm-space-3) var(--bm-space-4);
+      border-bottom: 1px solid var(--bm-border);
+      text-align: left;
+    }
+
+    .specs-table th {
+      background-color: var(--bm-surface);
+      font-weight: 600;
+      color: var(--bm-ink);
+      width: 30%;
+    }
+
+    .specs-table td {
+      color: var(--bm-ink-muted);
+    }
+
+    .specs-table tr:hover td {
+      background-color: var(--bm-surface);
+      color: var(--bm-ink);
+    }
+
+    /* Asymmetric Engineering Grid */
+    .engineering-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--bm-space-8);
+      margin-top: var(--bm-space-6);
+    }
+
+    @media (max-width: 768px) {
+      .engineering-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-panel {
+      border: 1px solid var(--bm-border);
+      border-radius: var(--bm-radius-md);
+      padding: var(--bm-space-6);
+      background-color: var(--bm-surface-raised);
+      transition: border-color var(--bm-duration-fast) var(--bm-ease-out);
+    }
+
+    .feature-panel:hover {
+      border-color: var(--bm-border-strong);
+    }
+
+    .feature-header {
+      display: flex;
+      align-items: center;
+      gap: var(--bm-space-3);
+      margin-bottom: var(--bm-space-2);
+    }
+
+    .feature-panel h3 {
+      font-size: var(--bm-text-base);
+      font-weight: 650;
+      margin: 0;
+    }
+
+    .feature-panel p {
+      font-size: var(--bm-text-sm);
+      line-height: 1.55;
+      color: var(--bm-ink-muted);
+      margin: 0;
+    }
+
+    /* Site Footer */
+    .site-footer {
+      border-top: 1px solid var(--bm-border);
+      padding: var(--bm-space-8) 0;
+      background-color: var(--bm-surface);
+      font-size: var(--bm-text-xs);
+      color: var(--bm-ink-subtle);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Full-Bleed Edge-to-Edge Masthead -->
+  <header class="site-header">
+    <div class="bm-header-fluid header-inner">
+      <a href="#" class="brand-link">
+        <!-- Minimal Geometric Burr Icon -->
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 3v18M3 12h18M6.5 6.5l11 11M6.5 17.5l11-11"/>
+        </svg>
+        <span>Kuro Engineering</span>
+      </a>
+
+      <nav class="header-nav">
+        <a href="#specifications">Specifications</a>
+        <a href="#modes">Burr Geometry</a>
+        <a href="#order">Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2-Column Split Hero (Expansive 1440px container, zero kickers above title) -->
+    <section class="bm-container">
+      <div class="hero-split">
+        <div class="hero-content bm-animate-fade">
+          <h1 class="hero-title">Kuro Obsidian 64mm Flat Burr Grinder</h1>
+
+          <p class="hero-lead">
+            Direct-drive brushless motor with custom DLC-coated 64mm flat burrs. 0.005mm micrometric stepless adjustment, near-zero retention (<0.1g), and quiet 58dB acoustic dampening.
+          </p>
+
+          <div class="action-group" id="order">
+            <div class="price-block">
+              <span class="price-main">$480.00</span>
+              <span class="price-notes">USD &bull; Includes CNC Magnetic Dosing Cup</span>
+            </div>
+
+            <button class="bm-button" id="order-btn" onclick="handleOrder()">
+              <svg class="bm-icon" viewBox="0 0 24 24">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+                <path d="M3 6h18"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+              <span>Order Unit</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Mode Selector: Proper Tactile Toggle Buttons -->
+          <div class="selector-card bm-animate-fade bm-stagger-2">
+            <div class="selector-header">
+              <span class="selector-title">Burr RPM &amp; Grind Calibration:</span>
+              <div class="bm-button-group" role="group" aria-label="Grind profile selector">
+                <button type="button" id="btn-espresso" class="bm-toggle-btn is-active" aria-pressed="true" onclick="setGrindMode('espresso')">
+                  <span>Espresso (Fine)</span>
+                </button>
+                <button type="button" id="btn-filter" class="bm-toggle-btn" aria-pressed="false" onclick="setGrindMode('filter')">
+                  <span>Pour Over (Medium)</span>
+                </button>
+                <button type="button" id="btn-coarse" class="bm-toggle-btn" aria-pressed="false" onclick="setGrindMode('coarse')">
+                  <span>Cold Brew (Coarse)</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="metrics-meter-list">
+              <div class="meter-row">
+                <div class="meter-labels">
+                  <span class="meter-name">Particle Median Diameter (D50)</span>
+                  <span class="meter-val" id="val-micron">220 µm</span>
+                </div>
+                <div class="meter-track">
+                  <div class="meter-bar" id="bar-micron" style="width: 25%;"></div>
+                </div>
+              </div>
+
+              <div class="meter-row">
+                <div class="meter-labels">
+                  <span class="meter-name">Motor RPM (Direct Drive)</span>
+                  <span class="meter-val" id="val-rpm">600 RPM</span>
+                </div>
+                <div class="meter-track">
+                  <div class="meter-bar" id="bar-rpm" style="width: 40%;"></div>
+                </div>
+              </div>
+
+              <div class="meter-row">
+                <div class="meter-labels">
+                  <span class="meter-name">18g Grind Duration</span>
+                  <span class="meter-val" id="val-time">11.4 Seconds</span>
+                </div>
+                <div class="meter-track">
+                  <div class="meter-bar" id="bar-time" style="width: 55%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Physical Product Schematic Vector -->
+        <div class="grinder-visual-card bm-animate-fade bm-stagger-3">
+          <svg class="grinder-svg" viewBox="0 0 240 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Hopper & Bellows -->
+            <rect x="75" y="20" width="90" height="34" rx="4" fill="#33363f" stroke="#18191c" stroke-width="2"/>
+            <path d="M85 54 L155 54 L142 90 L98 90 Z" fill="#282a30"/>
+
+            <!-- Main Body (Anodized Aluminum Casing) -->
+            <rect x="65" y="90" width="110" height="200" rx="10" fill="#18191c"/>
+            
+            <!-- Micrometric Adjustment Collar (Bronze Accent) -->
+            <rect x="63" y="96" width="114" height="20" rx="3" fill="#c27838"/>
+            <line x1="120" y1="96" x2="120" y2="116" stroke="#ffffff" stroke-width="2"/>
+
+            <!-- Chute & Spout -->
+            <path d="M120 180 L148 210 L140 220 L115 195 Z" fill="#33363f"/>
+
+            <!-- Magnetic Catch Cup -->
+            <rect x="90" y="240" width="60" height="70" rx="6" fill="#282a30" stroke="#444854" stroke-width="1.5"/>
+            <line x1="100" y1="260" x2="140" y2="260" stroke="#c27838" stroke-width="1"/>
+
+            <!-- Heavy Cast Base -->
+            <rect x="40" y="320" width="160" height="24" rx="6" fill="#18191c" stroke="#282a30" stroke-width="2"/>
+            <circle cx="65" cy="332" r="4" fill="#c27838"/>
+          </svg>
+
+          <div class="grinder-specs-footer">
+            <span style="display: flex; align-items: center; gap: 4px;">
+              <svg class="bm-icon" style="width: 14px; height: 14px; color: var(--bm-accent);" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              64mm DLC Diamond Burrs
+            </span>
+            <span style="display: flex; align-items: center; gap: 4px;">
+              <svg class="bm-icon" style="width: 14px; height: 14px; color: var(--bm-accent);" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              &lt;0.1g Retention
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engineering Spec Table (Data-Dense, Semantic) -->
+    <section class="content-section" id="specifications">
+      <div class="bm-container">
+        <h2 class="section-title">Hardware Tolerances &amp; Architecture</h2>
+        <p class="section-desc">Physical metallurgy, alignment tolerances, and motor ratings.</p>
+
+        <table class="specs-table">
+          <tbody>
+            <tr>
+              <th>Burr Carrier Alignment</th>
+              <td>Rotational runout &le; 0.008 mm verified via Mitutoyo dial indicator</td>
+            </tr>
+            <tr>
+              <th>Burr Geometry</th>
+              <td>64mm flat disc with multi-stage pre-breaker and finishing teeth</td>
+            </tr>
+            <tr>
+              <th>Burr Surface Treatment</th>
+              <td>Diamond-Like Carbon (DLC) coating rated for 2,500 kg throughput</td>
+            </tr>
+            <tr>
+              <th>Motor Topology</th>
+              <td>250W Brushless DC (BLDC) motor with closed-loop PID speed governance</td>
+            </tr>
+            <tr>
+              <th>Chassis Material</th>
+              <td>6061-T6 CNC-machined aerospace aluminum with matte hard anodization</td>
+            </tr>
+            <tr>
+              <th>Acoustic Emissions</th>
+              <td>58 dB under load measured at 1 meter distance</td>
+            </tr>
+            <tr>
+              <th>Tare Weight</th>
+              <td>6.8 kg (15.0 lbs) cast anti-vibration damping base</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="engineering-grid">
+          <div class="feature-panel">
+            <div class="feature-header">
+              <svg class="bm-icon" style="color: var(--bm-accent);" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m10 15 5-3-5-3v6Z"/>
+              </svg>
+              <h3>Closed-Loop PID Torque Controller</h3>
+            </div>
+            <p>
+              Monitors shaft resistance 1,000 times per second to maintain exact RPM regardless of coffee bean density, preventing RPM dips that generate unwanted fines.
+            </p>
+          </div>
+
+          <div class="feature-panel">
+            <div class="feature-header">
+              <svg class="bm-icon" style="color: var(--bm-accent);" viewBox="0 0 24 24">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+              <h3>Direct-Drop Zero Retention Exit</h3>
+            </div>
+            <p>
+              Short 28mm vertical chute lined with anti-static plasma coating. Combined with bellows, coffee exchange is less than 0.1g between consecutive doses.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clean Minimal Footer -->
+  <footer class="site-footer">
+    <div class="bm-header-fluid">
+      <span>Kuro Engineering Ltd &bull; Tokyo / Portland</span>
+      <span>Designed with bareminimum-design standard</span>
+    </div>
+  </footer>
+
+  <script>
+    // Proper Toggle Button Controller
+    function setGrindMode(mode) {
+      const btnEspresso = document.getElementById('btn-espresso');
+      const btnFilter = document.getElementById('btn-filter');
+      const btnCoarse = document.getElementById('btn-coarse');
+
+      [btnEspresso, btnFilter, btnCoarse].forEach(btn => {
+        btn.classList.remove('is-active');
+        btn.setAttribute('aria-pressed', 'false');
+      });
+
+      if (mode === 'espresso') {
+        btnEspresso.classList.add('is-active');
+        btnEspresso.setAttribute('aria-pressed', 'true');
+        document.getElementById('val-micron').textContent = '220 µm';
+        document.getElementById('bar-micron').style.width = '25%';
+        document.getElementById('val-rpm').textContent = '600 RPM';
+        document.getElementById('bar-rpm').style.width = '40%';
+        document.getElementById('val-time').textContent = '11.4 Seconds';
+        document.getElementById('bar-time').style.width = '55%';
+      } else if (mode === 'filter') {
+        btnFilter.classList.add('is-active');
+        btnFilter.setAttribute('aria-pressed', 'true');
+        document.getElementById('val-micron').textContent = '520 µm';
+        document.getElementById('bar-micron').style.width = '58%';
+        document.getElementById('val-rpm').textContent = '900 RPM';
+        document.getElementById('bar-rpm').style.width = '65%';
+        document.getElementById('val-time').textContent = '7.2 Seconds';
+        document.getElementById('bar-time').style.width = '35%';
+      } else {
+        btnCoarse.classList.add('is-active');
+        btnCoarse.setAttribute('aria-pressed', 'true');
+        document.getElementById('val-micron').textContent = '880 µm';
+        document.getElementById('bar-micron').style.width = '92%';
+        document.getElementById('val-rpm').textContent = '1,200 RPM';
+        document.getElementById('bar-rpm').style.width = '85%';
+        document.getElementById('val-time').textContent = '5.0 Seconds';
+        document.getElementById('bar-time').style.width = '24%';
+      }
+    }
+
+    function handleOrder() {
+      const btn = document.getElementById('order-btn');
+      btn.innerHTML = `
+        <svg class="bm-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Allocated to Batch ($480.00)</span>
+      `;
+      btn.style.backgroundColor = '#15803d';
+      setTimeout(() => {
+        btn.innerHTML = `
+          <svg class="bm-icon" viewBox="0 0 24 24">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+            <path d="M3 6h18"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span>Order Unit</span>
+        `;
+        btn.style.backgroundColor = '';
+      }, 2500);
+    }
+  </script>
+</body>
+</html>

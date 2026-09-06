@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -165,7 +166,7 @@
       align-items: center;
       position: relative;
       transition: transform var(--bm-duration-normal) var(--bm-ease-out),
-                  border-color var(--bm-duration-normal) var(--bm-ease-out);
+        border-color var(--bm-duration-normal) var(--bm-ease-out);
     }
 
     .showcase-card:hover {
@@ -357,15 +358,17 @@
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Masthead -->
+  <!-- Masthead (Full-bleed edge-to-edge) -->
   <header class="site-header">
-    <div class="bm-container header-inner">
+    <div class="bm-header-fluid header-inner">
       <a href="#" class="brand-link">
         <!-- Lucide Sparkles Vector -->
         <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+          <path
+            d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
         </svg>
         <span>Apex Nutrition</span>
       </a>
@@ -380,21 +383,15 @@
   </header>
 
   <main>
-    <!-- 2-Column Split Hero (Anti-slop layout with staggered animation) -->
+    <!-- 2-Column Split Hero (Expansive container, pure heading opener) -->
     <section class="bm-container">
       <div class="hero-split">
         <div class="hero-content bm-animate-fade">
-          <div class="flavor-tag">
-            <svg class="bm-icon" style="width: 13px; height: 13px;" viewBox="0 0 24 24">
-              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-            </svg>
-            <span>Limited Batch Release &bull; 40 Servings</span>
-          </div>
-
           <h1 class="hero-title">Unicorn Strawberry High-Potency Pre-Workout</h1>
 
           <p class="hero-lead">
-            Clinically dosed nitric oxide precursors, smooth dual-source caffeine, and natural macerated strawberry flavor. Zero proprietary blends, zero crash.
+            Clinically dosed nitric oxide precursors, smooth dual-source caffeine, and natural macerated strawberry
+            flavor. Limited batch release of 40 clinical servings with zero proprietary blends and zero crash.
           </p>
 
           <div class="action-group" id="order">
@@ -405,21 +402,27 @@
 
             <button class="bm-button" id="cart-btn" onclick="addToCart()">
               <svg class="bm-icon" viewBox="0 0 24 24">
-                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
-                <path d="M3 6h18"/>
-                <path d="M16 10a4 4 0 0 1-8 0"/>
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                <path d="M3 6h18" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
               </svg>
               <span>Add to Cart</span>
             </button>
           </div>
 
-          <!-- Dynamic Scoop Metric Selector (Purposeful Animation) -->
+          <!-- Dynamic Scoop Metric Selector (Proper Tactile Buttons) -->
           <div class="scoop-selector-card bm-animate-fade bm-stagger-2">
             <div class="selector-header">
               <span class="selector-title">Select Serving Potency:</span>
-              <div class="bm-pill-switch" role="tablist">
-                <button type="button" id="scoop-1-btn" class="active" onclick="setScoopMode(1)">1 Scoop (Focus)</button>
-                <button type="button" id="scoop-2-btn" onclick="setScoopMode(2)">2 Scoops (Max Dose)</button>
+              <div class="bm-button-group" role="group" aria-label="Serving size selector">
+                <button type="button" id="scoop-1-btn" class="bm-toggle-btn is-active" aria-pressed="true" onclick="setScoopMode(1)">
+                  <svg class="bm-icon" style="width: 14px; height: 14px;" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <span>1 Scoop (Focus)</span>
+                </button>
+                <button type="button" id="scoop-2-btn" class="bm-toggle-btn" aria-pressed="false" onclick="setScoopMode(2)">
+                  <svg class="bm-icon" style="width: 14px; height: 14px;" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  <span>2 Scoops (Max Dose)</span>
+                </button>
               </div>
             </div>
 
@@ -471,41 +474,46 @@
         <div class="showcase-card bm-animate-fade bm-stagger-3">
           <svg class="tub-svg" viewBox="0 0 240 320" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Tub Lid -->
-            <rect x="45" y="24" width="150" height="28" rx="6" fill="#18181b"/>
-            <rect x="42" y="46" width="156" height="10" rx="2" fill="#27272a"/>
+            <rect x="45" y="24" width="150" height="28" rx="6" fill="#18181b" />
+            <rect x="42" y="46" width="156" height="10" rx="2" fill="#27272a" />
 
             <!-- Tub Body -->
-            <rect x="35" y="56" width="170" height="240" rx="14" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
-            
+            <rect x="35" y="56" width="170" height="240" rx="14" fill="#ffffff" stroke="#e4e4e7" stroke-width="2" />
+
             <!-- Strawberry Color Band on Tub Label -->
-            <rect x="37" y="100" width="166" height="130" fill="#fff1f2"/>
-            <rect x="37" y="100" width="6" height="130" fill="#e11d48"/>
+            <rect x="37" y="100" width="166" height="130" fill="#fff1f2" />
+            <rect x="37" y="100" width="6" height="130" fill="#e11d48" />
 
             <!-- Flavor Title on Tub -->
-            <text x="120" y="140" fill="#e11d48" font-family="system-ui, sans-serif" font-weight="700" font-size="14" text-anchor="middle" letter-spacing="1">UNICORN</text>
-            <text x="120" y="158" fill="#18181b" font-family="system-ui, sans-serif" font-weight="700" font-size="16" text-anchor="middle">STRAWBERRY</text>
-            <text x="120" y="176" fill="#71717a" font-family="system-ui, sans-serif" font-weight="500" font-size="10" text-anchor="middle">CLINICAL PRE-WORKOUT</text>
+            <text x="120" y="140" fill="#e11d48" font-family="system-ui, sans-serif" font-weight="700" font-size="14"
+              text-anchor="middle" letter-spacing="1">UNICORN</text>
+            <text x="120" y="158" fill="#18181b" font-family="system-ui, sans-serif" font-weight="700" font-size="16"
+              text-anchor="middle">STRAWBERRY</text>
+            <text x="120" y="176" fill="#71717a" font-family="system-ui, sans-serif" font-weight="500" font-size="10"
+              text-anchor="middle">CLINICAL PRE-WORKOUT</text>
 
             <!-- Strawberry Icon Vector on Tub -->
             <g transform="translate(108, 190) scale(1)">
-              <path d="M12 2c3.5 0 7 2.5 7 7.5 0 5-7 12.5-7 12.5S5 14.5 5 9.5C5 4.5 8.5 2 12 2z" fill="#f43f5e"/>
-              <path d="M9 3c1 2 3 2 3 2s2 0 3-2" stroke="#15803d" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 2c3.5 0 7 2.5 7 7.5 0 5-7 12.5-7 12.5S5 14.5 5 9.5C5 4.5 8.5 2 12 2z" fill="#f43f5e" />
+              <path d="M9 3c1 2 3 2 3 2s2 0 3-2" stroke="#15803d" stroke-width="2" stroke-linecap="round" />
             </g>
 
-            <rect x="65" y="250" width="110" height="26" rx="4" fill="#f4f4f5"/>
-            <text x="120" y="267" fill="#52525b" font-family="monospace" font-size="10" text-anchor="middle">NET WT 480G (1.05 LBS)</text>
+            <rect x="65" y="250" width="110" height="26" rx="4" fill="#f4f4f5" />
+            <text x="120" y="267" fill="#52525b" font-family="monospace" font-size="10" text-anchor="middle">NET WT 480G
+              (1.05 LBS)</text>
           </svg>
 
-          <div style="margin-top: var(--bm-space-4); display: flex; gap: var(--bm-space-4); font-size: var(--bm-text-xs); color: var(--bm-ink-muted);">
+          <div
+            style="margin-top: var(--bm-space-4); display: flex; gap: var(--bm-space-4); font-size: var(--bm-text-xs); color: var(--bm-ink-muted);">
             <span style="display: flex; align-items: center; gap: 4px;">
               <svg class="bm-icon" style="width: 14px; height: 14px; color: var(--bm-accent);" viewBox="0 0 24 24">
-                <polyline points="20 6 9 17 4 12"/>
+                <polyline points="20 6 9 17 4 12" />
               </svg>
               Naturally Flavored
             </span>
             <span style="display: flex; align-items: center; gap: 4px;">
               <svg class="bm-icon" style="width: 14px; height: 14px; color: var(--bm-accent);" viewBox="0 0 24 24">
-                <polyline points="20 6 9 17 4 12"/>
+                <polyline points="20 6 9 17 4 12" />
               </svg>
               Zero Artificial Dyes
             </span>
@@ -587,20 +595,21 @@
           <div class="flavor-panel">
             <div class="flavor-panel-header">
               <svg class="bm-icon" style="color: var(--bm-accent);" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 8v4l3 3"/>
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4l3 3" />
               </svg>
               <h3>Top Note: Macerated Wild Berry</h3>
             </div>
             <p>
-              Crisp and bright natural strawberry acidity that dissolves instantly in cold water with no chalky precipitate.
+              Crisp and bright natural strawberry acidity that dissolves instantly in cold water with no chalky
+              precipitate.
             </p>
           </div>
 
           <div class="flavor-panel">
             <div class="flavor-panel-header">
               <svg class="bm-icon" style="color: var(--bm-accent);" viewBox="0 0 24 24">
-                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
               </svg>
               <h3>Mid Note: Sweet Cream Finish</h3>
             </div>
@@ -612,12 +621,14 @@
           <div class="flavor-panel">
             <div class="flavor-panel-header">
               <svg class="bm-icon" style="color: var(--bm-accent);" viewBox="0 0 24 24">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg>
               <h3>The "Unicorn" Shimmer</h3>
             </div>
             <p>
-              Light botanical sparkle derived from natural elderberry and red beet extracts. Completely free of Red #40 dye.
+              Light botanical sparkle derived from natural elderberry and red beet extracts. Completely free of Red #40
+              dye.
             </p>
           </div>
         </div>
@@ -640,8 +651,10 @@
       const btn2 = document.getElementById('scoop-2-btn');
 
       if (scoops === 1) {
-        btn1.classList.add('active');
-        btn2.classList.remove('active');
+        btn1.classList.add('is-active');
+        btn1.setAttribute('aria-pressed', 'true');
+        btn2.classList.remove('is-active');
+        btn2.setAttribute('aria-pressed', 'false');
 
         document.getElementById('val-citrulline').textContent = '4,000 mg';
         document.getElementById('bar-citrulline').style.width = '50%';
@@ -655,8 +668,10 @@
         document.getElementById('val-gpc').textContent = '300 mg';
         document.getElementById('bar-gpc').style.width = '50%';
       } else {
-        btn2.classList.add('active');
-        btn1.classList.remove('active');
+        btn2.classList.add('is-active');
+        btn2.setAttribute('aria-pressed', 'true');
+        btn1.classList.remove('is-active');
+        btn1.setAttribute('aria-pressed', 'false');
 
         document.getElementById('val-citrulline').textContent = '8,000 mg';
         document.getElementById('bar-citrulline').style.width = '100%';
@@ -697,4 +712,5 @@
     }
   </script>
 </body>
+
 </html>
