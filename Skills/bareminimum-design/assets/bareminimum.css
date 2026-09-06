@@ -3,28 +3,31 @@
  * 
  * Provides an anti-slop starter foundation for any project:
  * - Legible, human-scale typography (no tiny fonts, minimum 16px body, 14px secondary).
- * - High-contrast, grounded surfaces (no purple gradients, no neon halos, no glassmorphism).
- * - Crisp geometric boundaries (no side-tab borders, no hairline + diffuse shadow combos).
- * - Restrained, performant transitions (transform & opacity only; zero bounce or layout thrash).
+ * - Clean, tailored surface palette (neutral, refined tonal steps; avoids muddy grays and harsh stark blacks).
+ * - Cohesive, project-derived action buttons (avoids jarring, unharmonious high-contrast blocks).
+ * - Purposeful, layout-safe animations (staggered entrance, tactile hover/active, smooth metric transitions).
  */
 
 :root {
-  /* Surface and ink primitives - neutral, intentional, high contrast */
-  --bm-bg: #ffffff;
-  --bm-surface: #f8f9fa;
+  /* Surface and ink primitives - refined, clean, harmonious */
+  --bm-bg: #fafafa;
+  --bm-surface: #f4f4f5;
   --bm-surface-raised: #ffffff;
-  --bm-surface-subtle: #f1f3f5;
-  --bm-ink: #111827;
-  --bm-ink-muted: #4b5563;
-  --bm-ink-subtle: #6b7280;
-  --bm-border: #e5e7eb;
-  --bm-border-strong: #d1d5db;
+  --bm-surface-subtle: #f0f0f2;
+  --bm-ink: #18181b;
+  --bm-ink-muted: #52525b;
+  --bm-ink-subtle: #71717a;
+  --bm-border: #e4e4e7;
+  --bm-border-subtle: #f4f4f5;
+  --bm-border-strong: #d4d4d8;
   
-  /* Single purposeful accent (override per project; default neutral slate-indigo) */
-  --bm-accent: #2563eb;
-  --bm-accent-hover: #1d4ed8;
+  /* Project Accent Family (Default neutral-indigo, override per project concept) */
+  --bm-accent: #3b82f6;
+  --bm-accent-hover: #2563eb;
+  --bm-accent-active: #1d4ed8;
+  --bm-accent-subtle: #eff6ff;
   --bm-accent-contrast: #ffffff;
-  --bm-focus-ring: rgba(37, 99, 235, 0.35);
+  --bm-focus-ring: rgba(59, 130, 246, 0.25);
 
   /* Typography scale (Ratio ~1.25, clear visual hierarchy) */
   --bm-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -55,34 +58,37 @@
   --bm-space-16: 4rem;     /* 64px */
 
   /* Radii - restrained, never pill-shaped on cards */
-  --bm-radius-sm: 4px;
-  --bm-radius-md: 6px;
-  --bm-radius-lg: 10px;
+  --bm-radius-sm: 6px;
+  --bm-radius-md: 8px;
+  --bm-radius-lg: 12px;
   --bm-radius-full: 9999px; /* Reserved strictly for circular badges & pills */
 
-  /* Shadows - subtle and defined, never huge diffuse dark-mode glows */
-  --bm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --bm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  /* Shadows - soft, clean, never diffuse neon glows */
+  --bm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --bm-shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
 
-  /* Transitions - hardware accelerated, smooth ease-out curves */
+  /* Transitions & Curves - performant ease-out curves */
   --bm-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --bm-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --bm-duration-fast: 150ms;
-  --bm-duration-normal: 200ms;
+  --bm-duration-normal: 220ms;
+  --bm-duration-slow: 350ms;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bm-bg: #0f1117;
-    --bm-surface: #181b23;
-    --bm-surface-raised: #1f232d;
-    --bm-surface-subtle: #14171f;
-    --bm-ink: #f9fafb;
-    --bm-ink-muted: #9ca3af;
-    --bm-ink-subtle: #6b7280;
-    --bm-border: #2d3342;
-    --bm-border-strong: #3f4759;
-    --bm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-    --bm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --bm-bg: #111215;
+    --bm-surface: #18191e;
+    --bm-surface-raised: #1f2026;
+    --bm-surface-subtle: #141519;
+    --bm-ink: #f4f4f5;
+    --bm-ink-muted: #a1a1aa;
+    --bm-ink-subtle: #71717a;
+    --bm-border: #27272a;
+    --bm-border-subtle: #1f2024;
+    --bm-border-strong: #3f3f46;
+    --bm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+    --bm-shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.45);
   }
 }
 
@@ -110,9 +116,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Guardrails: Prevent unconstrained reading widths and crowded blocks */
+/* Reading container constraints */
 p, ul, ol {
-  max-width: 68ch; /* Optimal line length: 60-75 characters */
+  max-width: 68ch;
   color: var(--bm-ink);
 }
 
@@ -191,22 +197,25 @@ button {
   padding-right: var(--bm-space-4);
 }
 
-/* Anti-slop Card: Crisp single boundary or clean elevated surface */
+/* Anti-slop Card: Crisp single boundary with clean tonal elevation */
 .bm-card {
   background-color: var(--bm-surface-raised);
   border: 1px solid var(--bm-border);
   border-radius: var(--bm-radius-md);
   padding: var(--bm-space-6);
   box-shadow: var(--bm-shadow-sm);
+  transition: border-color var(--bm-duration-normal) var(--bm-ease-out),
+              box-shadow var(--bm-duration-normal) var(--bm-ease-out),
+              transform var(--bm-duration-normal) var(--bm-ease-out);
 }
 
-/* Action button: Solid, honest, accessible */
+/* Action button: Harmonious, tactile, accessible (no harsh disconnected high-contrast) */
 .bm-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--bm-space-2);
-  padding: 0.625rem 1.125rem;
+  padding: 0.65rem 1.25rem;
   font-size: var(--bm-text-sm);
   font-weight: 550;
   line-height: 1;
@@ -215,24 +224,37 @@ button {
   background-color: var(--bm-accent);
   color: var(--bm-accent-contrast);
   text-decoration: none;
+  box-shadow: var(--bm-shadow-sm);
   transition: background-color var(--bm-duration-fast) var(--bm-ease-out),
-              transform var(--bm-duration-fast) var(--bm-ease-out);
+              transform var(--bm-duration-fast) var(--bm-ease-out),
+              box-shadow var(--bm-duration-fast) var(--bm-ease-out);
 }
 
 .bm-button:hover {
   background-color: var(--bm-accent-hover);
   color: var(--bm-accent-contrast);
+  transform: translateY(-1px);
+  box-shadow: var(--bm-shadow-md);
+}
+
+.bm-button:active {
+  background-color: var(--bm-accent-active);
+  transform: translateY(1px);
+  box-shadow: var(--bm-shadow-sm);
 }
 
 .bm-button--secondary {
   background-color: var(--bm-surface);
-  border-color: var(--bm-border-strong);
+  border-color: var(--bm-border);
   color: var(--bm-ink);
+  box-shadow: none;
 }
 
 .bm-button--secondary:hover {
   background-color: var(--bm-surface-subtle);
+  border-color: var(--bm-border-strong);
   color: var(--bm-ink);
+  transform: translateY(-1px);
 }
 
 /* Icon integration: optical inline alignment, never oversized floating tile */
@@ -240,11 +262,62 @@ button {
   display: inline-block;
   width: 1.25rem;
   height: 1.25rem;
-  stroke-width: 1.75;
+  stroke-width: 1.8;
   stroke: currentColor;
   fill: none;
   vertical-align: -0.15em;
   flex-shrink: 0;
+  transition: transform var(--bm-duration-fast) var(--bm-ease-out);
+}
+
+/* Purposeful, Tasteful Animations */
+@keyframes bmFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bm-animate-fade {
+  animation: bmFadeInUp var(--bm-duration-slow) var(--bm-ease-out) both;
+}
+
+.bm-stagger-1 { animation-delay: 50ms; }
+.bm-stagger-2 { animation-delay: 100ms; }
+.bm-stagger-3 { animation-delay: 160ms; }
+.bm-stagger-4 { animation-delay: 220ms; }
+
+/* Interactive tab/pill controls */
+.bm-pill-switch {
+  display: inline-flex;
+  background-color: var(--bm-surface);
+  border: 1px solid var(--bm-border);
+  border-radius: var(--bm-radius-full);
+  padding: 3px;
+  gap: 2px;
+}
+
+.bm-pill-switch button {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  font-size: var(--bm-text-sm);
+  font-weight: 500;
+  border-radius: var(--bm-radius-full);
+  color: var(--bm-ink-muted);
+  transition: background-color var(--bm-duration-fast) var(--bm-ease-out),
+              color var(--bm-duration-fast) var(--bm-ease-out);
+}
+
+.bm-pill-switch button.active {
+  background-color: var(--bm-surface-raised);
+  color: var(--bm-ink);
+  font-weight: 600;
+  box-shadow: var(--bm-shadow-sm);
 }
 
 /* Accessibility: Reduced motion support */
@@ -256,4 +329,3 @@ button {
     scroll-behavior: auto !important;
   }
 }
-

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unicorn Strawberry — High-Performance Pre-Workout</title>
+  <link rel="stylesheet" href="../Skills/bareminimum-design/assets/bareminimum.css">
+  <style>
+    /* Cohesive Project-Tailored Color Palette: Unicorn Strawberry */
+    :root {
+      /* Brand Accent Family: Ripe Strawberry Ruby & Cream */
+      --bm-accent: #e11d48;
+      --bm-accent-hover: #be123c;
+      --bm-accent-active: #9f1239;
+      --bm-accent-subtle: #fff1f2;
+      --bm-accent-border: #fecdd3;
+      --bm-accent-contrast: #ffffff;
+      --bm-focus-ring: rgba(225, 29, 72, 0.25);
+
+      /* Clean, refined canvas */
+      --bm-bg: #fafafa;
+      --bm-surface: #f5f5f7;
+      --bm-surface-raised: #ffffff;
+      --bm-ink: #18181b;
+      --bm-ink-muted: #52525b;
+      --bm-border: #e4e4e7;
+
+      /* Secondary theme highlights (Soft champagne pearl) */
+      --berry-cream: #fff5f6;
+      --berry-gold: #d97706;
+    }
+
+    /* Masthead */
+    .site-header {
+      border-bottom: 1px solid var(--bm-border);
+      background-color: var(--bm-surface-raised);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: var(--bm-space-3);
+      font-weight: 700;
+      font-size: var(--bm-text-lg);
+      color: var(--bm-ink);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--bm-accent);
+      flex-shrink: 0;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: var(--bm-space-6);
+    }
+
+    .header-nav a {
+      font-size: var(--bm-text-sm);
+      font-weight: 500;
+      color: var(--bm-ink-muted);
+      text-decoration: none;
+      transition: color var(--bm-duration-fast) var(--bm-ease-out);
+    }
+
+    .header-nav a:hover {
+      color: var(--bm-accent);
+    }
+
+    /* Hero Section: 2-Column Split with Staggered Entrance */
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--bm-space-12);
+      align-items: center;
+      padding-top: var(--bm-space-12);
+      padding-bottom: var(--bm-space-12);
+    }
+
+    @media (max-width: 880px) {
+      .hero-split {
+        grid-template-columns: 1fr;
+        gap: var(--bm-space-8);
+      }
+    }
+
+    .flavor-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--bm-space-2);
+      padding: 5px 12px;
+      background-color: var(--bm-accent-subtle);
+      border: 1px solid var(--bm-accent-border);
+      border-radius: var(--bm-radius-full);
+      font-size: var(--bm-text-xs);
+      font-weight: 600;
+      color: var(--bm-accent);
+      margin-bottom: var(--bm-space-4);
+    }
+
+    .hero-title {
+      font-size: clamp(2.25rem, 3.8vw, 3rem);
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--bm-ink);
+      margin-bottom: var(--bm-space-4);
+    }
+
+    .hero-lead {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: var(--bm-ink-muted);
+      margin-bottom: var(--bm-space-6);
+    }
+
+    .action-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--bm-space-4);
+      margin-bottom: var(--bm-space-8);
+    }
+
+    .price-block {
+      display: flex;
+      align-items: baseline;
+      gap: var(--bm-space-2);
+    }
+
+    .price-main {
+      font-size: 1.625rem;
+      font-weight: 700;
+      color: var(--bm-ink);
+    }
+
+    .price-servings {
+      font-size: var(--bm-text-sm);
+      color: var(--bm-ink-subtle);
+    }
+
+    /* Product Showcase Card & Visual */
+    .showcase-card {
+      background: linear-gradient(180deg, #ffffff 0%, var(--berry-cream) 100%);
+      border: 1px solid var(--bm-border);
+      border-radius: var(--bm-radius-lg);
+      padding: var(--bm-space-8);
+      box-shadow: var(--bm-shadow-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      transition: transform var(--bm-duration-normal) var(--bm-ease-out),
+                  border-color var(--bm-duration-normal) var(--bm-ease-out);
+    }
+
+    .showcase-card:hover {
+      border-color: var(--bm-accent-border);
+      transform: translateY(-2px);
+    }
+
+    .tub-svg {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      filter: drop-shadow(0 6px 16px rgba(225, 29, 72, 0.08));
+    }
+
+    /* Interactive Scoop Selector (Purposeful Animation) */
+    .scoop-selector-card {
+      margin-top: var(--bm-space-6);
+      border: 1px solid var(--bm-border);
+      border-radius: var(--bm-radius-md);
+      background-color: var(--bm-surface-raised);
+      padding: var(--bm-space-6);
+      box-shadow: var(--bm-shadow-sm);
+    }
+
+    .selector-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--bm-space-4);
+    }
+
+    .selector-title {
+      font-size: var(--bm-text-sm);
+      font-weight: 650;
+      color: var(--bm-ink);
+    }
+
+    .metrics-meter-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--bm-space-3);
+    }
+
+    .meter-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .meter-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--bm-text-xs);
+    }
+
+    .meter-name {
+      font-weight: 550;
+      color: var(--bm-ink);
+    }
+
+    .meter-val {
+      font-weight: 600;
+      color: var(--bm-accent);
+      font-variant-numeric: tabular-nums;
+      transition: color var(--bm-duration-fast) var(--bm-ease-out);
+    }
+
+    .meter-track {
+      width: 100%;
+      height: 6px;
+      background-color: var(--bm-surface);
+      border-radius: var(--bm-radius-full);
+      overflow: hidden;
+    }
+
+    .meter-bar {
+      height: 100%;
+      background-color: var(--bm-accent);
+      border-radius: var(--bm-radius-full);
+      transition: width var(--bm-duration-slow) var(--bm-ease-out);
+    }
+
+    /* Sections */
+    .content-section {
+      padding-top: var(--bm-space-12);
+      padding-bottom: var(--bm-space-12);
+      border-top: 1px solid var(--bm-border);
+    }
+
+    .section-title {
+      font-size: var(--bm-text-2xl);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--bm-space-2);
+    }
+
+    .section-lead {
+      font-size: var(--bm-text-base);
+      color: var(--bm-ink-muted);
+      margin-bottom: var(--bm-space-8);
+    }
+
+    /* Supplement Facts Table (Data-Dense, Authentic) */
+    .supplement-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--bm-text-sm);
+      margin-top: var(--bm-space-4);
+    }
+
+    .supplement-table th,
+    .supplement-table td {
+      padding: var(--bm-space-3) var(--bm-space-4);
+      border-bottom: 1px solid var(--bm-border);
+      text-align: left;
+    }
+
+    .supplement-table th {
+      background-color: var(--bm-surface);
+      font-weight: 600;
+      color: var(--bm-ink);
+    }
+
+    .supplement-table tr:hover td {
+      background-color: var(--bm-surface);
+    }
+
+    /* Flavor Notes Asymmetric Grid */
+    .flavor-breakdown-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--bm-space-6);
+      margin-top: var(--bm-space-6);
+    }
+
+    @media (max-width: 768px) {
+      .flavor-breakdown-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .flavor-panel {
+      background-color: var(--bm-surface-raised);
+      border: 1px solid var(--bm-border);
+      border-radius: var(--bm-radius-md);
+      padding: var(--bm-space-6);
+      transition: border-color var(--bm-duration-fast) var(--bm-ease-out);
+    }
+
+    .flavor-panel:hover {
+      border-color: var(--bm-accent-border);
+    }
+
+    .flavor-panel-header {
+      display: flex;
+      align-items: center;
+      gap: var(--bm-space-2);
+      margin-bottom: var(--bm-space-2);
+    }
+
+    .flavor-panel h3 {
+      font-size: var(--bm-text-base);
+      font-weight: 650;
+      margin: 0;
+    }
+
+    .flavor-panel p {
+      font-size: var(--bm-text-sm);
+      line-height: 1.55;
+      color: var(--bm-ink-muted);
+      margin: 0;
+    }
+
+    /* Site Footer */
+    .site-footer {
+      border-top: 1px solid var(--bm-border);
+      padding: var(--bm-space-8) 0;
+      background-color: var(--bm-surface);
+      font-size: var(--bm-text-xs);
+      color: var(--bm-ink-subtle);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--bm-space-4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Masthead -->
+  <header class="site-header">
+    <div class="bm-container header-inner">
+      <a href="#" class="brand-link">
+        <!-- Lucide Sparkles Vector -->
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+        </svg>
+        <span>Apex Nutrition</span>
+      </a>
+
+      <nav class="header-nav">
+        <a href="#formula">Clinical Formula</a>
+        <a href="#flavor-notes">Flavor Architecture</a>
+        <a href="#dosing">Dosing Calculator</a>
+        <a href="#order">Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2-Column Split Hero (Anti-slop layout with staggered animation) -->
+    <section class="bm-container">
+      <div class="hero-split">
+        <div class="hero-content bm-animate-fade">
+          <div class="flavor-tag">
+            <svg class="bm-icon" style="width: 13px; height: 13px;" viewBox="0 0 24 24">
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+            </svg>
+            <span>Limited Batch Release &bull; 40 Servings</span>
+          </div>
+
+          <h1 class="hero-title">Unicorn Strawberry High-Potency Pre-Workout</h1>
+
+          <p class="hero-lead">
+            Clinically dosed nitric oxide precursors, smooth dual-source caffeine, and natural macerated strawberry flavor. Zero proprietary blends, zero crash.
+          </p>
+
+          <div class="action-group" id="order">
+            <div class="price-block">
+              <span class="price-main">$44.00</span>
+              <span class="price-servings">USD / 40 Scoops ($1.10 per session)</span>
+            </div>
+
+            <button class="bm-button" id="cart-btn" onclick="addToCart()">
+              <svg class="bm-icon" viewBox="0 0 24 24">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+                <path d="M3 6h18"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Scoop Metric Selector (Purposeful Animation) -->
+          <div class="scoop-selector-card bm-animate-fade bm-stagger-2">
+            <div class="selector-header">
+              <span class="selector-title">Select Serving Potency:</span>
+              <div class="bm-pill-switch" role="tablist">
+                <button type="button" id="scoop-1-btn" class="active" onclick="setScoopMode(1)">1 Scoop (Focus)</button>
+                <button type="button" id="scoop-2-btn" onclick="setScoopMode(2)">2 Scoops (Max Dose)</button>
+              </div>
+            </div>
+
+            <div class="metrics-meter-list">
+              <div class="meter-row">
+                <div class="meter-labels">
+                  <span class="meter-name">L-Citrulline (Nitric Oxide Synthesis)</span>
+                  <span class="meter-val" id="val-citrulline">4,000 mg</span>
+                </div>
+                <div class="meter-track">
+                  <div class="meter-bar" id="bar-citrulline" style="width: 50%;"></div>
+                </div>
+              </div>
+
+              <div class="meter-row">
+                <div class="meter-labels">
+                  <span class="meter-name">Beta-Alanine (Endurance Buffering)</span>
+                  <span class="meter-val" id="val-beta">1,600 mg</span>
+                </div>
+                <div class="meter-track">
+                  <div class="meter-bar" id="bar-beta" style="width: 50%;"></div>
+                </div>
+              </div>
+
+              <div class="meter-row">
+                <div class="meter-labels">
+                  <span class="meter-name">Caffeine Anhydrous + Infinergy™</span>
+                  <span class="meter-val" id="val-caffeine">175 mg</span>
+                </div>
+                <div class="meter-track">
+                  <div class="meter-bar" id="bar-caffeine" style="width: 50%;"></div>
+                </div>
+              </div>
+
+              <div class="meter-row">
+                <div class="meter-labels">
+                  <span class="meter-name">Alpha-GPC 50% (Neuro-Focus)</span>
+                  <span class="meter-val" id="val-gpc">300 mg</span>
+                </div>
+                <div class="meter-track">
+                  <div class="meter-bar" id="bar-gpc" style="width: 50%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Product Tub Schematic Illustration -->
+        <div class="showcase-card bm-animate-fade bm-stagger-3">
+          <svg class="tub-svg" viewBox="0 0 240 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Tub Lid -->
+            <rect x="45" y="24" width="150" height="28" rx="6" fill="#18181b"/>
+            <rect x="42" y="46" width="156" height="10" rx="2" fill="#27272a"/>
+
+            <!-- Tub Body -->
+            <rect x="35" y="56" width="170" height="240" rx="14" fill="#ffffff" stroke="#e4e4e7" stroke-width="2"/>
+            
+            <!-- Strawberry Color Band on Tub Label -->
+            <rect x="37" y="100" width="166" height="130" fill="#fff1f2"/>
+            <rect x="37" y="100" width="6" height="130" fill="#e11d48"/>
+
+            <!-- Flavor Title on Tub -->
+            <text x="120" y="140" fill="#e11d48" font-family="system-ui, sans-serif" font-weight="700" font-size="14" text-anchor="middle" letter-spacing="1">UNICORN</text>
+            <text x="120" y="158" fill="#18181b" font-family="system-ui, sans-serif" font-weight="700" font-size="16" text-anchor="middle">STRAWBERRY</text>
+            <text x="120" y="176" fill="#71717a" font-family="system-ui, sans-serif" font-weight="500" font-size="10" text-anchor="middle">CLINICAL PRE-WORKOUT</text>
+
+            <!-- Strawberry Icon Vector on Tub -->
+            <g transform="translate(108, 190) scale(1)">
+              <path d="M12 2c3.5 0 7 2.5 7 7.5 0 5-7 12.5-7 12.5S5 14.5 5 9.5C5 4.5 8.5 2 12 2z" fill="#f43f5e"/>
+              <path d="M9 3c1 2 3 2 3 2s2 0 3-2" stroke="#15803d" stroke-width="2" stroke-linecap="round"/>
+            </g>
+
+            <rect x="65" y="250" width="110" height="26" rx="4" fill="#f4f4f5"/>
+            <text x="120" y="267" fill="#52525b" font-family="monospace" font-size="10" text-anchor="middle">NET WT 480G (1.05 LBS)</text>
+          </svg>
+
+          <div style="margin-top: var(--bm-space-4); display: flex; gap: var(--bm-space-4); font-size: var(--bm-text-xs); color: var(--bm-ink-muted);">
+            <span style="display: flex; align-items: center; gap: 4px;">
+              <svg class="bm-icon" style="width: 14px; height: 14px; color: var(--bm-accent);" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Naturally Flavored
+            </span>
+            <span style="display: flex; align-items: center; gap: 4px;">
+              <svg class="bm-icon" style="width: 14px; height: 14px; color: var(--bm-accent);" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Zero Artificial Dyes
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transparent Formula Table (No AI buzzwords, actual clinical data) -->
+    <section class="content-section" id="formula">
+      <div class="bm-container">
+        <h2 class="section-title">Transparent Nutritional Formulation</h2>
+        <p class="section-lead">Full label disclosure with exact milligrams per serving. No hidden blends.</p>
+
+        <table class="supplement-table">
+          <thead>
+            <tr>
+              <th>Active Ingredient</th>
+              <th>1 Scoop (12g)</th>
+              <th>2 Scoops (24g)</th>
+              <th>Primary Physiological Pathway</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>L-Citrulline (Fermented)</th>
+              <td>4,000 mg</td>
+              <td>8,000 mg</td>
+              <td>Plasma L-arginine elevation and endothelial nitric oxide synthase</td>
+            </tr>
+            <tr>
+              <th>Beta-Alanine (CarnoSyn&reg;)</th>
+              <td>1,600 mg</td>
+              <td>3,200 mg</td>
+              <td>Intramuscular carnosine synthesis to buffer lactic acid accumulation</td>
+            </tr>
+            <tr>
+              <th>Betaine Anhydrous</th>
+              <td>1,250 mg</td>
+              <td>2,500 mg</td>
+              <td>Cellular osmolyte support and power output maintenance</td>
+            </tr>
+            <tr>
+              <th>L-Tyrosine</th>
+              <td>750 mg</td>
+              <td>1,500 mg</td>
+              <td>Catecholamine precursor for cognitive task endurance under stress</td>
+            </tr>
+            <tr>
+              <th>Alpha-GPC 50% (L-alpha-glycerylphosphorylcholine)</th>
+              <td>300 mg</td>
+              <td>600 mg</td>
+              <td>Direct acetylcholine donor for neuromuscular mind-muscle connection</td>
+            </tr>
+            <tr>
+              <th>Caffeine Anhydrous</th>
+              <td>150 mg</td>
+              <td>300 mg</td>
+              <td>Central nervous system adenosine receptor antagonist (fast uptake)</td>
+            </tr>
+            <tr>
+              <th>Infinergy&trade; (Di-Caffeine Malate)</th>
+              <td>25 mg</td>
+              <td>50 mg</td>
+              <td>Sustained-release caffeine compound buffering post-workout fatigue</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Flavor Architecture (Asymmetric 3-Panel Breakdown, Not Slop Cards) -->
+    <section class="content-section" id="flavor-notes">
+      <div class="bm-container">
+        <h2 class="section-title">Flavor Architecture: Unicorn Strawberry</h2>
+        <p class="section-lead">Engineered using freeze-dried strawberry essence and natural botanical extracts.</p>
+
+        <div class="flavor-breakdown-grid">
+          <div class="flavor-panel">
+            <div class="flavor-panel-header">
+              <svg class="bm-icon" style="color: var(--bm-accent);" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 8v4l3 3"/>
+              </svg>
+              <h3>Top Note: Macerated Wild Berry</h3>
+            </div>
+            <p>
+              Crisp and bright natural strawberry acidity that dissolves instantly in cold water with no chalky precipitate.
+            </p>
+          </div>
+
+          <div class="flavor-panel">
+            <div class="flavor-panel-header">
+              <svg class="bm-icon" style="color: var(--bm-accent);" viewBox="0 0 24 24">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+              </svg>
+              <h3>Mid Note: Sweet Cream Finish</h3>
+            </div>
+            <p>
+              A rounded vanilla-cream body that offsets the natural tartness of high-dose citrulline and malate salts.
+            </p>
+          </div>
+
+          <div class="flavor-panel">
+            <div class="flavor-panel-header">
+              <svg class="bm-icon" style="color: var(--bm-accent);" viewBox="0 0 24 24">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              <h3>The "Unicorn" Shimmer</h3>
+            </div>
+            <p>
+              Light botanical sparkle derived from natural elderberry and red beet extracts. Completely free of Red #40 dye.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clean Minimal Footer -->
+  <footer class="site-footer">
+    <div class="bm-container footer-inner">
+      <span>Apex Nutrition &bull; Manufactured in an NSF-Certified cGMP Facility</span>
+      <span>Designed with bareminimum-design standard</span>
+    </div>
+  </footer>
+
+  <script>
+    // Purposeful Animation: Dynamic Scoop Potency Switcher
+    function setScoopMode(scoops) {
+      const btn1 = document.getElementById('scoop-1-btn');
+      const btn2 = document.getElementById('scoop-2-btn');
+
+      if (scoops === 1) {
+        btn1.classList.add('active');
+        btn2.classList.remove('active');
+
+        document.getElementById('val-citrulline').textContent = '4,000 mg';
+        document.getElementById('bar-citrulline').style.width = '50%';
+
+        document.getElementById('val-beta').textContent = '1,600 mg';
+        document.getElementById('bar-beta').style.width = '50%';
+
+        document.getElementById('val-caffeine').textContent = '175 mg';
+        document.getElementById('bar-caffeine').style.width = '50%';
+
+        document.getElementById('val-gpc').textContent = '300 mg';
+        document.getElementById('bar-gpc').style.width = '50%';
+      } else {
+        btn2.classList.add('active');
+        btn1.classList.remove('active');
+
+        document.getElementById('val-citrulline').textContent = '8,000 mg';
+        document.getElementById('bar-citrulline').style.width = '100%';
+
+        document.getElementById('val-beta').textContent = '3,200 mg';
+        document.getElementById('bar-beta').style.width = '100%';
+
+        document.getElementById('val-caffeine').textContent = '350 mg';
+        document.getElementById('bar-caffeine').style.width = '100%';
+
+        document.getElementById('val-gpc').textContent = '600 mg';
+        document.getElementById('bar-gpc').style.width = '100%';
+      }
+    }
+
+    // Tactile Add to Cart Feedback
+    function addToCart() {
+      const btn = document.getElementById('cart-btn');
+      btn.innerHTML = `
+        <svg class="bm-icon" viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        <span>Added to Order ($44.00)</span>
+      `;
+      btn.style.backgroundColor = '#15803d';
+
+      setTimeout(() => {
+        btn.innerHTML = `
+          <svg class="bm-icon" viewBox="0 0 24 24">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+            <path d="M3 6h18"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span>Add to Cart</span>
+        `;
+        btn.style.backgroundColor = '';
+      }, 2400);
+    }
+  </script>
+</body>
+</html>
