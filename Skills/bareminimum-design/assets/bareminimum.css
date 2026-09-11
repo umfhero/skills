@@ -7,6 +7,7 @@
  * - STRICT BAN: Absolutely no mini-titles, tags, badges, or kickers above main headings.
  * - Robust, tactile button controls (proper toggle buttons, segmented switches, primary actions).
  * - Clean, tailored surface palette (neutral, refined tonal steps; avoids muddy grays and harsh stark blacks).
+ * - Cohesive, project-derived action buttons (avoids jarring, unharmonious high-contrast blocks).
  * - Purposeful, layout-safe animations (staggered entrance, tactile hover/active, smooth metric transitions).
  */
 
@@ -41,9 +42,11 @@
   --bm-text-lg: 1.25rem;    /* 20px: subheadings, card titles */
   --bm-text-xl: 1.5rem;     /* 24px: section headings */
   --bm-text-2xl: 2rem;      /* 32px: major titles */
+  --bm-text-3xl: 2.5rem;    /* 40px: hero display */
   --bm-text-3xl: 2.75rem;   /* 44px: hero display */
 
   /* Leading */
+  --bm-leading-tight: 1.2;
   --bm-leading-tight: 1.15;
   --bm-leading-snug: 1.35;
   --bm-leading-normal: 1.55;
@@ -180,12 +183,16 @@ button {
   outline-offset: 2px;
 }
 
+/* Containers and Surfaces */
 /* Expansive Container: Modern generous width, never cramped */
 .bm-container {
   width: 100%;
+  max-width: 1200px;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: var(--bm-space-4);
+  padding-right: var(--bm-space-4);
   padding-left: max(1.5rem, 3.5vw);
   padding-right: max(1.5rem, 3.5vw);
 }
@@ -202,6 +209,7 @@ button {
 
 .bm-prose-container {
   width: 100%;
+  max-width: 720px;
   max-width: 760px;
   margin-left: auto;
   margin-right: auto;
@@ -221,14 +229,17 @@ button {
               transform var(--bm-duration-normal) var(--bm-ease-out);
 }
 
+/* Action button: Harmonious, tactile, accessible (no harsh disconnected high-contrast) */
 /* Primary Action Button: Harmonious, tactile, accessible */
 .bm-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--bm-space-2);
+  padding: 0.65rem 1.25rem;
   padding: 0.7rem 1.35rem;
   font-size: var(--bm-text-sm);
+  font-weight: 550;
   font-weight: 600;
   line-height: 1;
   border-radius: var(--bm-radius-md);
@@ -332,6 +343,7 @@ button {
 @keyframes bmFadeInUp {
   from {
     opacity: 0;
+    transform: translateY(10px);
     transform: translateY(12px);
   }
   to {
@@ -344,10 +356,43 @@ button {
   animation: bmFadeInUp var(--bm-duration-slow) var(--bm-ease-out) both;
 }
 
+.bm-stagger-1 { animation-delay: 50ms; }
+.bm-stagger-2 { animation-delay: 100ms; }
+.bm-stagger-3 { animation-delay: 160ms; }
+.bm-stagger-4 { animation-delay: 220ms; }
 .bm-stagger-1 { animation-delay: 60ms; }
 .bm-stagger-2 { animation-delay: 120ms; }
 .bm-stagger-3 { animation-delay: 180ms; }
 .bm-stagger-4 { animation-delay: 240ms; }
+
+/* Interactive tab/pill controls */
+.bm-pill-switch {
+  display: inline-flex;
+  background-color: var(--bm-surface);
+  border: 1px solid var(--bm-border);
+  border-radius: var(--bm-radius-full);
+  padding: 3px;
+  gap: 2px;
+}
+
+.bm-pill-switch button {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  font-size: var(--bm-text-sm);
+  font-weight: 500;
+  border-radius: var(--bm-radius-full);
+  color: var(--bm-ink-muted);
+  transition: background-color var(--bm-duration-fast) var(--bm-ease-out),
+              color var(--bm-duration-fast) var(--bm-ease-out);
+}
+
+.bm-pill-switch button.active {
+  background-color: var(--bm-surface-raised);
+  color: var(--bm-ink);
+  font-weight: 600;
+  box-shadow: var(--bm-shadow-sm);
+}
 
 /* Accessibility: Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
