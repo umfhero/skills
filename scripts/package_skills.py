@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TEXT_SUFFIXES = {".md", ".txt", ".json", ".yaml", ".yml", ".py", ".js", ".css", ".tsx", ".ts", ".html", ".svg"}
 # Explicit public catalogue: local/private skill directories are never auto-discovered.
 CATALOGUE = (
-    ("Text", "anti-slop", "Anti-slop", "Natural writing with strict meaning, evidence and style checks."),
+    ("Text", "anti-slop", "Anti-slop (latest)", "Recommended writing skill. Natural prose with strict meaning, evidence and style checks."),
     ("Text · legacy", "stop-slopv3", "stop-slopv3", "Earlier author-voice and AI-pattern rules."),
     ("Text · legacy", "stop-slopv2", "stop-slopv2", "Original author-voice rules, kept for compatibility."),
     ("Design", "bareminimum-design", "Bareminimum Design", "Clean typography, layouts and reusable UI foundations."),
@@ -71,7 +71,8 @@ def make_zip(files):
 
 
 def readme():
-    lines = ["# Skills", "", "Download one skill below. Each ZIP includes its `SKILL.md` and supporting files.", "",
+    lines = ["# Skills", "", "**Anti-slop is the latest version of the stop-slop writing skill and the recommended choice.** Earlier versions are listed as legacy.", "",
+             "Download one skill below. Each ZIP includes its `SKILL.md` and supporting files.", "",
              "| Category | Skill | Use it for | Download |", "| --- | --- | --- | --- |"]
     for category, folder, label, description in CATALOGUE:
         url = "https://github.com/umfhero/skills/raw/refs/heads/main/downloads/" + folder + ".zip"

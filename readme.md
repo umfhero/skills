@@ -1,10 +1,12 @@
 # Skills
 
+**Anti-slop is the latest version of the stop-slop writing skill and the recommended choice.** Earlier versions are listed as legacy.
+
 Download one skill below. Each ZIP includes its `SKILL.md` and supporting files.
 
 | Category | Skill | Use it for | Download |
 | --- | --- | --- | --- |
-| Text | [Anti-slop](Skills/anti-slop/) | Natural writing with strict meaning, evidence and style checks. | [ZIP](https://github.com/umfhero/skills/raw/refs/heads/main/downloads/anti-slop.zip) |
+| Text | [Anti-slop (latest)](Skills/anti-slop/) | Recommended writing skill. Natural prose with strict meaning, evidence and style checks. | [ZIP](https://github.com/umfhero/skills/raw/refs/heads/main/downloads/anti-slop.zip) |
 | Text · legacy | [stop-slopv3](Skills/stop-slopv3/) | Earlier author-voice and AI-pattern rules. | [ZIP](https://github.com/umfhero/skills/raw/refs/heads/main/downloads/stop-slopv3.zip) |
 | Text · legacy | [stop-slopv2](Skills/stop-slopv2/) | Original author-voice rules, kept for compatibility. | [ZIP](https://github.com/umfhero/skills/raw/refs/heads/main/downloads/stop-slopv2.zip) |
 | Design | [Bareminimum Design](Skills/bareminimum-design/) | Clean typography, layouts and reusable UI foundations. | [ZIP](https://github.com/umfhero/skills/raw/refs/heads/main/downloads/bareminimum-design.zip) |
