@@ -1,6 +1,3 @@
-<div align="center">
-
-<img src="promo/Claude%20Skills.png" alt="Reusable AI skills" width="100%">
 
 # Skills
 
