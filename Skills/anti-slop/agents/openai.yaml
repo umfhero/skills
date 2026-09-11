@@ -1,0 +1,4 @@
+interface:
+  display_name: "Anti-slop"
+  short_description: "Natural prose with strict meaning and evidence checks"
+  default_prompt: "Use $anti-slop to improve this text while preserving its facts, uncertainty and voice."

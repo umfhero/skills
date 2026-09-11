@@ -1,1 +1,10 @@
 Skills/stop-slopv3.zip
+
+# Private local UEFN skills; intentionally excluded from distribution.
+/Skills/UEFN-build/
+/Skills/UEFN-MCP/
+/Skills/UEFN-Tycoon/
+
+# Local evaluation and Python cache files.
+__pycache__/
+*.pyc

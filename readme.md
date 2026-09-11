@@ -1,97 +1,16 @@
-
 # Skills
 
-Reusable writing and web-design skills for Claude, Codex, ChatGPT, Gemini, and other AI tools.
+Download one skill below. Each ZIP includes its `SKILL.md` and supporting files.
 
-Each skill is self-contained: start with its `SKILL.md`, then load any linked `references/`, `assets/`, or `scripts/` when needed.
+| Category | Skill | Use it for | Download |
+| --- | --- | --- | --- |
+| Text | [Anti-slop](Skills/anti-slop/) | Natural writing with strict meaning, evidence and style checks. | [ZIP](https://github.com/umfhero/skills/raw/refs/heads/main/downloads/anti-slop.zip) |
+| Text · legacy | [stop-slopv3](Skills/stop-slopv3/) | Earlier author-voice and AI-pattern rules. | [ZIP](https://github.com/umfhero/skills/raw/refs/heads/main/downloads/stop-slopv3.zip) |
+| Text · legacy | [stop-slopv2](Skills/stop-slopv2/) | Original author-voice rules, kept for compatibility. | [ZIP](https://github.com/umfhero/skills/raw/refs/heads/main/downloads/stop-slopv2.zip) |
+| Design | [Bareminimum Design](Skills/bareminimum-design/) | Clean typography, layouts and reusable UI foundations. | [ZIP](https://github.com/umfhero/skills/raw/refs/heads/main/downloads/bareminimum-design.zip) |
+| Design | [Pixel Design](Skills/pixel-design/) | Retro interfaces with pixel icons, hard borders and stepped motion. | [ZIP](https://github.com/umfhero/skills/raw/refs/heads/main/downloads/pixel-design.zip) |
+| Design | [Git Design](Skills/git-design/) | GitHub Universe-inspired layouts, typography and interactions. | [ZIP](https://github.com/umfhero/skills/raw/refs/heads/main/downloads/git-design.zip) |
 
-</div>
+Import the ZIP into a tool that supports skill uploads, or extract the skill folder into your tool's skills directory. For Codex, use `~/.codex/skills/`; for Claude Code, use `~/.claude/skills/`. Downloading does not install it automatically.
 
-## Writing skills
-
-| Skill                              | Use it for                                                                                                                                                            |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [stop-slopv3](Skills/stop-slopv3/) | Natural, specific writing without common AI phrasing or formatting habits. Includes voice profiles and academic, professional, and casual registers. **Recommended.** |
-| [stop-slopv2](Skills/stop-slopv2/) | The earlier human-writing ruleset, retained for compatibility and comparison.                                                                                         |
-
-### Writing example
-
-The same performance-review prompt without and with `stop-slopv3`:
-
-<table>
-<tr>
-<th align="center">Typical AI output</th>
-<th align="center">With stop-slopv3</th>
-</tr>
-<tr>
-<td><img src="promo/before-ai-slop.svg" alt="Typical AI writing with generic phrasing" width="100%"></td>
-<td><img src="promo/after-stop-slopv3.svg" alt="Direct writing produced with stop-slopv3" width="100%"></td>
-</tr>
-</table>
-
-## Design skills
-
-| Skill                                            | Use it for                                                                                                                                                                                                                                          |
-| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [bareminimum-design](Skills/bareminimum-design/) | Foundational starter design system that eradicates AI slop (purple gradients, tiny text, kicker mini-titles, identical 3-card grids, icon tiles) with clean typography, Lucide icons, and robust layouts. **Recommended for starting any project.** |
-| [pixel-design](Skills/pixel-design/)             | Retro 8-bit interfaces with hard borders, offset shadows, pixel icons, high-contrast colour blocks, and stepped motion.                                                                                                                             |
-| [git-design](Skills/git-design/)                 | GitHub Universe-style landing pages with measured desktop/mobile layouts, typography, colour tokens, media controls, tickers, tabs, carousels, and accessible motion.                                                                               |
-
-### Pixel Design example
-
-<img src="promo/pixeldesign.png" alt="Web interface created with pixel-design" width="100%">
-
-### Git-Design example
-
-<img src="promo/git-design-desktop.png" alt="Desktop landing page created with Git-Design" width="100%">
-
-<p align="center"><img src="promo/git-design-mobile.png" alt="Mobile landing page created with Git-Design" width="390"></p>
-
-The working example is in [git-design-demo](git-design-demo/). To preview it locally:
-
-```bash
-python -m http.server 4173
-```
-
-Open `http://127.0.0.1:4173/git-design-demo/`.
-
-## UEFN skills
-
-| Skill                              | Use it for                                                                                                                                                           |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [UEFN-MCP](Skills/UEFN-MCP/)       | Connecting to Epic's official UEFN MCP beta, discovering its live toolsets, using verified JSON-RPC request shapes, and handling current protocol quirks.            |
-| [UEFN-build](Skills/UEFN-build/)   | Building and verifying UEFN levels through MCP: finding assets, placing actors and primitives, authoring materials, transforming content, and saving scoped changes. |
-| [UEFN-Tycoon](Skills/UEFN-Tycoon/) | Extending the project-specific Skyblock tycoon safely, with its Verse architecture, persistence model, dependency map, live device wiring, and source snapshot.      |
-
-UEFN MCP shipped with Fortnite v42.00 on 20 August 2026 and is currently in beta. See [Epic's UEFN MCP documentation](https://dev.epicgames.com/documentation/fortnite/uefn-mcp).
-
-## Install
-
-### Claude
-
-Zip one skill folder so the archive contains `skill-name/SKILL.md`, then upload it under **Settings → Capabilities → Skills**.
-
-### Codex or Claude Code
-
-Copy the complete skill folder into your personal or project skills directory:
-
-```text
-~/.codex/skills/skill-name/
-~/.claude/skills/skill-name/
-```
-
-### Other AI tools
-
-Upload the skill's `SKILL.md` and referenced files as project knowledge, then instruct the tool to follow `SKILL.md` for matching tasks.
-
-## Skill structure
-
-```text
-skill-name/
-├── SKILL.md
-├── references/   # Detailed guidance
-├── assets/       # Reusable styles, icons, and templates
-└── scripts/      # Reusable interactions or validation
-```
-
-Only `SKILL.md` is required. Keep detailed material in the linked folders so the core instructions stay short.
+Maintainers: `python scripts/package_skills.py` rebuilds the ZIPs and this table; add `--check` to verify they match the source.

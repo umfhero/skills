@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "skills": [
+    {
+      "name": "anti-slop",
+      "archive": "anti-slop.zip",
+      "sha256": "0f97361f423d924708afa802c5e9fba918b0325c25bc065e9fadf41279b75d04",
+      "files": {
+        "anti-slop/agents/openai.yaml": "bb34d04a241c4845a7167de4500b9fa3b35299289cbbdb3aafe03620a918d550",
+        "anti-slop/evals/cases.json": "59f266fcd921736091b29c93f8b75a51112790e14789e0e8c8324a90d70cf865",
+        "anti-slop/evals/test_gate.py": "82a773ba9e011d0ef25bccc1f24d3e7964e9987ff5dbdbc1640a05ffd1597784",
+        "anti-slop/references/examples.md": "456ff35a8bb3fe0dc3ab53b54364f342a57afe8aad7ab1296e324d76f0defcdc",
+        "anti-slop/references/provenance.md": "c02297a27dc5489982471f5bcfd1ad72f42c2e995b3293aa99ba54b5d2666c59",
+        "anti-slop/references/rules.md": "c847b12934f55fd2d3a28ea334ae50b7240c84950b9d65a024e18237ed97ce4d",
+        "anti-slop/references/verification.md": "995b8f9c86a898d6c8e2b14fde1554f4f2c289430809cd0b475ba097b6e08779",
+        "anti-slop/references/voice.md": "19639b445e8f34f38743d419af5f9ee61f6c33bae1bb7138c7779bc677810bd9",
+        "anti-slop/scripts/check_text.py": "2cfb18fc2aae4114c1ff35c71d34962dbf86a3cd60c5a64c7d3039260bdaf9c3",
+        "anti-slop/SKILL.md": "6304b18540503ccac1cd7ddb498d6494e3a951d9a3c590993836cda5769b0949",
+        "anti-slop/THIRD_PARTY_NOTICES.md": "97e6d10e49e52281de9352266401f25fb2319e134f15107578bd2da33db4d3ae"
+      }
+    },
+    {
+      "name": "stop-slopv3",
+      "archive": "stop-slopv3.zip",
+      "sha256": "eec495929392197401731bd3e6a196ba7aa97636a72181803c7ebfb28d1c1763",
+      "files": {
+        "stop-slopv3/references/banned-patterns.md": "a90fba51310d7eb032d140d7adddeb06796f5a24b3b4863db9fa19d5a4dd7e48",
+        "stop-slopv3/references/examples.md": "5a7513e47b77e47263d1c216134538a13715c064f47e57c72d627b655180d4c0",
+        "stop-slopv3/references/voice-profile.md": "21e688d42b5fad87e5b554ad4ee55e78000f15b2815cd910d602a7db2700ab5d",
+        "stop-slopv3/SKILL.md": "12fd570c66733968ae427ffbea8831882d46df0c2ff28bbde0fb018f0f1b0329"
+      }
+    },
+    {
+      "name": "stop-slopv2",
+      "archive": "stop-slopv2.zip",
+      "sha256": "a5633297f89841b6b765f9fa7f388951fc5b808e9f0ad5085420d0d8b75f6158",
+      "files": {
+        "stop-slopv2/references/banned-patterns.md": "91118be4e7aef65d4c9bd0f19ca449c2851ff46f9bda01a6f9806fa4a9ccb202",
+        "stop-slopv2/references/examples.md": "8d5006f64f1ff7c75c81484b9d4a5303d308cd42987afd5037f1d027c4aa3457",
+        "stop-slopv2/references/voice-profile.md": "2113386f73f8875481c40d7142a601b9283793a4e52cb099aad8ac3f16d24274",
+        "stop-slopv2/SKILL.md": "878e54965da7b77c9bbd2b950301357cc6393e5cbefae62aa8b7f818b676e18f"
+      }
+    },
+    {
+      "name": "bareminimum-design",
+      "archive": "bareminimum-design.zip",
+      "sha256": "93378ed887f7716ed1ea4b2ee0db65ed9e7ce3a4c3587af19f7f4bc5e76dcdfc",
+      "files": {
+        "bareminimum-design/assets/bareminimum.css": "6790b0d91a9b7cc5d0cd595b73c58dca326dd8f47c085795015736f36f0cbbcf",
+        "bareminimum-design/references/anti-slop-catalog.md": "4737e6e3abbe09c142ff23606eb37e06af925c5b5af8dd18c2545854a6a1a7fc",
+        "bareminimum-design/references/foundations.md": "71896317474cb46259b33bac26ba721b3070455ebdaf89a16d6c7efd93d38b9f",
+        "bareminimum-design/SKILL.md": "e285ed9d0e80a28d0ae710f5aafee816398e188736fdfe386556b3ffcb892ecd"
+      }
+    },
+    {
+      "name": "pixel-design",
+      "archive": "pixel-design.zip",
+      "sha256": "a3cfb5aa473068e863da48b646441489ff88f0f727c499e351544e3d0684c3b7",
+      "files": {
+        "pixel-design/assets/pixel-design.css": "2a520ff8a3b2251c939a2d891e53fdac400b65f7505378edd9f78a9afc77b0f1",
+        "pixel-design/assets/pixel-icons.html": "e884394372376aed85d50bde6cd44d872d6c693d331a64cfc8e57115bf3fda42",
+        "pixel-design/assets/PixelIcons.tsx": "670f8b036ff76e2e8b84ad2e872677f5b2ccaf568f8a3f75b4f680e1fff53e00",
+        "pixel-design/references/adoption.md": "a94127a66a48c3ffd394455fe9d2e652fa2b92dfcf2894ed721cbaf50930f34c",
+        "pixel-design/references/css-recipes.md": "42e84184d75a69e3b88708013977c91b1c49e105ceb16531a4cde9256f273dc7",
+        "pixel-design/references/pixel-icons.md": "4070b5a30280ca921e4126034d68a0cb20243631ba5edb0b12cd8100f2c08e64",
+        "pixel-design/SKILL.md": "4eb23035bb9e5d6d383fc7a89f73ccda6322b9314a2473e06abc8ad25b0444c3"
+      }
+    },
+    {
+      "name": "git-design",
+      "archive": "git-design.zip",
+      "sha256": "a16e17414ae19658b689cda4a73c7ffbbdd10373517d97ebe696feefe1d9688e",
+      "files": {
+        "git-design/agents/openai.yaml": "8a0d11fab82c05f1f708581da01b25fc16c9cda42f7790043aa6bd77e3e7c23f",
+        "git-design/assets/git-design.css": "b7584893101b9c0cfe3c36bb03b45823ba4bee9f511d404aac9663bbb180e07f",
+        "git-design/assets/universe-parity.css": "1b01aaf54c494f4d0d5739b673a566ad5f281b03b5d93eb60686b117524da5f2",
+        "git-design/references/homepage-blueprint.md": "5be82290c5d71818ee65a8069ce280966589d0f97882b87037ba8939a01e6146",
+        "git-design/references/motion-and-icons.md": "458ab45a0124904222070134fabdb07e760271435912899149b0fcc0e48c7131",
+        "git-design/references/universe-parity-spec.md": "06d1e6f726da1b0600e6cd2d035da49e5c35d9dfbe25c1ea121b1f6964853574",
+        "git-design/scripts/cursor-trail.js": "cbe8efe0b79b81e95c2e3953289952c7c28a529ea3b2fd71e64ee6766e4daa11",
+        "git-design/scripts/universe-interactions.js": "7e245eed284f45e7abf5e4bd3c3e7dc6a62b04f1023102c1414e1a67f72e02a3",
+        "git-design/SKILL.md": "3510ea9e6f11f8d7c983d134a43d5aef658219f06193412232b3ce7a99ae0453"
+      }
+    }
+  ]
+}
